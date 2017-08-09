@@ -36,7 +36,10 @@ public class RegenCommandExecutor implements CommandExecutor
 		else if(src instanceof CommandBlockSource)
 		{
 			CommandBlockSource cbs = (CommandBlockSource) src;
-			
+			World world = cbs.getWorld();
+			Location<World> loc = cbs.getLocation();
+			Vector3i chunkpos = loc.getChunkPosition();
+			src.sendMessage(Text.of(world.getName() + ":" + chunkpos.getX() + "," + chunkpos.getY() + "," + chunkpos.getZ()));
 		}
 		else
 		{
