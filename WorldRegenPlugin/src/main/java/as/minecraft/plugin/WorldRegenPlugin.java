@@ -6,6 +6,7 @@ import org.spongepowered.api.command.spec.CommandSpec;
 import org.spongepowered.api.event.Listener;
 import org.spongepowered.api.event.game.state.GameStartedServerEvent;
 import org.spongepowered.api.plugin.Plugin;
+import org.spongepowered.api.plugin.PluginContainer;
 import org.spongepowered.api.text.Text;
 
 import com.google.inject.Inject;
@@ -15,6 +16,8 @@ public class WorldRegenPlugin
 {
 	@Inject
 	private Logger logger;
+	@Inject
+	private PluginContainer container;
 	
 	@Listener
 	public void onServerStart(GameStartedServerEvent event)
@@ -34,12 +37,23 @@ public class WorldRegenPlugin
 		return logger;
 	}
 	
+	@Inject
+	private void setPluginContainer(PluginContainer container)
+	{
+		this.container = container;
+	}
+	
+	public PluginContainer getPluginContainer()
+	{
+		return container;
+	}
+	
 	private void buildCommands()
 	{
 		CommandSpec commandSpec = CommandSpec.builder()
 				.description(Text.of("Regenerate current chunk"))
 				.permission("worldregenplugin.command.regenerate")
-				.executor(new RegenCommandExecutor())
+				.executor(new RegenCommandExecutor(this, logger))
 				.build();
 		
 		Sponge.getCommandManager().register(this, commandSpec, "regen", "regenerate");

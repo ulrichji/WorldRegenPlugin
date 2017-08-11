@@ -9,3 +9,10 @@ description = 'World reset/regeneration plugin.'
 dependencies {
     compile 'org.spongepowered:spongeapi:6.0.0'
 }
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile 'com.flowpowered:flow-nbt:1.0.1-SNAPSHOT'
+}
