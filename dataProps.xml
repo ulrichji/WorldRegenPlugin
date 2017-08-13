@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+
+<root>
+	<Block type="STONE">
+		<Prop bits="0xF" data="StoneData" dataType="StoneType" key="STONE_TYPE">
+			<Val val="0">StoneTypes.STONE</Val>
+			<Val val="1">StoneTypes.GRANITE</Val>
+			<Val val="2">StoneTypes.SMOOTH_GRANITE</Val>
+			<Val val="3">StoneTypes.DIORITE</Val>
+			<Val val="4">StoneTypes.SMOOTH_DIORITE</Val>
+			<Val val="5">StoneTypes.ANDESITE</Val>
+			<Val val="6">StoneTypes.SMOOTH_ANDESITE</Val>
+		</Prop>
+	</Block>
+	<Block type="PLANKS">
+		<Prop bits="0xF" data="TreeData" dataType="TreeType" key="TREE_TYPE">
+			<Val val="0">TreeTypes.OAK</Val>
+			<Val val="1">TreeTypes.SPRUCE</Val>
+			<Val val="2">TreeTypes.BIRCH</Val>
+			<Val val="3">TreeTypes.JUNGLE</Val>
+			<Val val="4">TreeTypes.ACACIA</Val>
+			<Val val="5">TreeTypes.DARK_OAK</Val>
+		</Prop>
+	</Block>
+	<Block type="DIRT">
+		<Prop bits="0xF" data="DirtData" dataType="DirtType" key="DIRT_TYPE">
+			<Val val="0">DirtTypes.DIRT</Val>
+			<Val val="1">DirtTypes.COARSE_DIRT</Val>
+			<Val val="2">DirtTypes.PODZOL</Val>
+		</Prop>
+	</Block>
+	<Block type="SAPLING">
+		<Prop bits="0x7" data="TreeData" dataType="TreeType" key="TREE_TYPE">
+			<Val val="0">TreeTypes.OAK</Val>
+			<Val val="1">TreeTypes.SPRUCE</Val>
+			<Val val="2">TreeTypes.BIRCH</Val>
+			<Val val="3">TreeTypes.JUNGLE</Val>
+			<Val val="4">TreeTypes.ACACIA</Val>
+			<Val val="5">TreeTypes.DARK_OAK</Val>
+		</Prop>
+		<!--Haven't found any sapling manipulators-->
+	</Block>
+	<Block type="WATER">
+		<Prop bits="0x7" data="FluidLevelData" dataType="Integer" key="FLUID_LEVEL">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+			<Val val="4">4</Val>
+			<Val val="5">5</Val>
+			<Val val="6">6</Val>
+			<Val val="7">7</Val>
+		</Prop>
+		<!--Highest bit is if the water is falling. Found no properties for it-->
+	</Block>
+	<Block type="FLOWING_WATER">
+		<Prop bits="0x7" data="FluidLevelData" dataType="Integer" key="FLUID_LEVEL">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+			<Val val="4">4</Val>
+			<Val val="5">5</Val>
+			<Val val="6">6</Val>
+			<Val val="7">7</Val>
+		</Prop>
+		<!--Highest bit is if the water is falling. Found no properties for it-->
+	</Block>
+	<Block type="LAVA">
+		<Prop bits="0x7" data="FluidLevelData" dataType="Integer" key="FLUID_LEVEL">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+			<Val val="4">4</Val>
+			<Val val="5">5</Val>
+			<Val val="6">6</Val>
+			<Val val="7">7</Val>
+		</Prop>
+		<!--Highest bit is if the water is falling. Found no properties for it-->
+	</Block>
+	<Block type="FLOWING_LAVA">
+		<Prop bits="0x7" data="FluidLevelData" dataType="Integer" key="FLUID_LEVEL">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+			<Val val="4">4</Val>
+			<Val val="5">5</Val>
+			<Val val="6">6</Val>
+			<Val val="7">7</Val>
+		</Prop>
+		<!--Highest bit is if the water is falling. Found no properties for it-->
+	</Block>
+	<Block type="SAND">
+		<Prop bits="0xF" data="SandData" dataType="SandType" key="SAND_TYPE">
+			<Val val="0">SandTypes.NORMAL</Val>
+			<Val val="1">SandTypes.RED</Val>
+		</Prop>
+	</Block>
+	<Block type="LOG">
+		<Prop bits="0x3" data="TreeData" dataType="TreeType" key="TREE_TYPE">
+			<Val val="0">TreeTypes.OAK</Val>
+			<Val val="1">TreeTypes.SPRUCE</Val>
+			<Val val="2">TreeTypes.BIRCH</Val>
+			<Val val="3">TreeTypes.JUNGLE</Val>
+		</Prop>
+		<Prop bits="0xC" data="LogAxisData" dataType="LogAxis" key="LOG_AXIS">
+			<Val val="0">LogAxes.Y</Val>
+			<Val val="4">LogAxes.X</Val>
+			<Val val="8">LogAxes.Z</Val>
+			<Val val="12">LogAxes.NONE</Val>
+		</Prop>
+	</Block>
+	<Block type="LOG2">
+		<Prop bits="0x3" data="TreeData" dataType="TreeType" key="TREE_TYPE">
+			<Val val="0">TreeTypes.ACACIA</Val>
+			<Val val="1">TreeTypes.DARK_OAK</Val>
+		</Prop>
+		<Prop bits="0xC" data="LogAxisData" dataType="LogAxis" key="LOG_AXIS">
+			<Val val="0">LogAxes.Y</Val>
+			<Val val="4">LogAxes.X</Val>
+			<Val val="8">LogAxes.Z</Val>
+			<Val val="12">LogAxes.NONE</Val>
+		</Prop>
+	</Block>
+	<Block type="LEAVES">
+		<Prop bits="0x3" data="TreeData" dataType="TreeType" key="TREE_TYPE">
+			<Val val="0">TreeTypes.OAK</Val>
+			<Val val="1">TreeTypes.SPRUCE</Val>
+			<Val val="2">TreeTypes.BIRCH</Val>
+			<Val val="3">TreeTypes.JUNGLE</Val>
+		</Prop>
+		<Prop bits="0x4" data="DecayableData" dataType="Boolean" key="DECAYABLE">
+			<Val val="0">false</Val>
+			<Val val="4">true</Val>
+		</Prop>
+	</Block>
+	<Block type="LEAVES2">
+		<Prop bits="0x3" data="TreeData" dataType="TreeType" key="TREE_TYPE">
+			<Val val="0">TreeTypes.ACACIA</Val>
+			<Val val="1">TreeTypes.DARK_OAK</Val>
+		</Prop>
+		<Prop bits="0x4" data="DecayableData" dataType="Boolean" key="DECAYABLE">
+			<Val val="0">false</Val>
+			<Val val="4">true</Val>
+		</Prop>
+	</Block>
+	<Block type="CARPET">
+		<!-- TODO: FIX colors -->
+		<Prop bits="0xF" data="ColoredData" dataType="Color" key="COLOR">
+			<Val val="0">Color.WHITE</Val>
+			<Val val="1">Color.YELLOW</Val>
+			<Val val="2">Color.MAGENTA</Val>
+			<Val val="3">Color.BLUE</Val>
+			<Val val="4">Color.YELLOW</Val>
+			<Val val="5">Color.LIME</Val>
+			<Val val="6">Color.PINK</Val>
+			<Val val="7">Color.GRAY</Val>
+			<Val val="8">Color.GRAY</Val>
+			<Val val="9">Color.CYAN</Val>
+			<Val val="10">Color.PURPLE</Val>
+			<Val val="11">Color.BLUE</Val>
+			<Val val="12">Color.RED</Val>
+			<Val val="13">Color.GREEN</Val>
+			<Val val="14">Color.RED</Val>
+			<Val val="15">Color.BLACK</Val>
+		</Prop>
+	</Block>
+	<Block type="WOOL">
+		<!-- TODO: FIX colors -->
+		<Prop bits="0xF" data="ColoredData" dataType="Color" key="COLOR">
+			<Val val="0">Color.WHITE</Val>
+			<Val val="1">Color.YELLOW</Val>
+			<Val val="2">Color.MAGENTA</Val>
+			<Val val="3">Color.BLUE</Val>
+			<Val val="4">Color.YELLOW</Val>
+			<Val val="5">Color.LIME</Val>
+			<Val val="6">Color.PINK</Val>
+			<Val val="7">Color.GRAY</Val>
+			<Val val="8">Color.GRAY</Val>
+			<Val val="9">Color.CYAN</Val>
+			<Val val="10">Color.PURPLE</Val>
+			<Val val="11">Color.BLUE</Val>
+			<Val val="12">Color.RED</Val>
+			<Val val="13">Color.GREEN</Val>
+			<Val val="14">Color.RED</Val>
+			<Val val="15">Color.BLACK</Val>
+		</Prop>
+	</Block>
+	<!--Block type="TERRACOTTA">
+		<Prop bits="0xF" data="ColoredData" dataType="Color" key="COLOR">
+			<Val val="0">Color.WHITE</Val>
+			<Val val="1">Color.YELLOW</Val>
+			<Val val="2">Color.MAGENTA</Val>
+			<Val val="3">Color.BLUE</Val>
+			<Val val="4">Color.YELLOW</Val>
+			<Val val="5">Color.LIME</Val>
+			<Val val="6">Color.PINK</Val>
+			<Val val="7">Color.GRAY</Val>
+			<Val val="8">Color.GRAY</Val>
+			<Val val="9">Color.CYAN</Val>
+			<Val val="10">Color.PURPLE</Val>
+			<Val val="11">Color.BLUE</Val>
+			<Val val="12">Color.RED</Val>
+			<Val val="13">Color.GREEN</Val>
+			<Val val="14">Color.RED</Val>
+			<Val val="15">Color.BLACK</Val>
+		</Prop>
+	</Block-->
+	<Block type="STAINED_GLASS">
+		<!-- TODO: FIX colors -->
+		<Prop bits="0xF" data="ColoredData" dataType="Color" key="COLOR">
+			<Val val="0">Color.WHITE</Val>
+			<Val val="1">Color.YELLOW</Val>
+			<Val val="2">Color.MAGENTA</Val>
+			<Val val="3">Color.BLUE</Val>
+			<Val val="4">Color.YELLOW</Val>
+			<Val val="5">Color.LIME</Val>
+			<Val val="6">Color.PINK</Val>
+			<Val val="7">Color.GRAY</Val>
+			<Val val="8">Color.GRAY</Val>
+			<Val val="9">Color.CYAN</Val>
+			<Val val="10">Color.PURPLE</Val>
+			<Val val="11">Color.BLUE</Val>
+			<Val val="12">Color.RED</Val>
+			<Val val="13">Color.GREEN</Val>
+			<Val val="14">Color.RED</Val>
+			<Val val="15">Color.BLACK</Val>
+		</Prop>
+	</Block>
+	<Block type="TORCH">
+		<Prop bits="0xF" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="1">Direction.EAST</Val>
+			<Val val="2">Direction.WEST</Val>
+			<Val val="3">Direction.SOUTH</Val>
+			<Val val="4">Direction.NORTH</Val>
+			<Val val="5">Direction.UP</Val>
+		</Prop>
+	</Block>
+</root>
