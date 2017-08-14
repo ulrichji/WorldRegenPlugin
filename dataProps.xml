@@ -147,86 +147,84 @@
 		</Prop>
 	</Block>
 	<Block type="CARPET">
-		<!-- TODO: FIX colors -->
-		<Prop bits="0xF" data="ColoredData" dataType="Color" key="COLOR">
-			<Val val="0">Color.WHITE</Val>
-			<Val val="1">Color.YELLOW</Val>
-			<Val val="2">Color.MAGENTA</Val>
-			<Val val="3">Color.BLUE</Val>
-			<Val val="4">Color.YELLOW</Val>
-			<Val val="5">Color.LIME</Val>
-			<Val val="6">Color.PINK</Val>
-			<Val val="7">Color.GRAY</Val>
-			<Val val="8">Color.GRAY</Val>
-			<Val val="9">Color.CYAN</Val>
-			<Val val="10">Color.PURPLE</Val>
-			<Val val="11">Color.BLUE</Val>
-			<Val val="12">Color.RED</Val>
-			<Val val="13">Color.GREEN</Val>
-			<Val val="14">Color.RED</Val>
-			<Val val="15">Color.BLACK</Val>
+		<Prop bits="0xF" data="DyableData" dataType="DyeColor" key="DYE_COLOR">
+			<Val val="0">DyeColors.WHITE</Val>
+			<Val val="1">DyeColors.ORANGE</Val>
+			<Val val="2">DyeColors.MAGENTA</Val>
+			<Val val="3">DyeColors.LIGHT_BLUE</Val>
+			<Val val="4">DyeColors.YELLOW</Val>
+			<Val val="5">DyeColors.LIME</Val>
+			<Val val="6">DyeColors.PINK</Val>
+			<Val val="7">DyeColors.SILVER</Val>
+			<Val val="8">DyeColors.GRAY</Val>
+			<Val val="9">DyeColors.CYAN</Val>
+			<Val val="10">DyeColors.PURPLE</Val>
+			<Val val="11">DyeColors.BLUE</Val>
+			<Val val="12">DyeColors.BROWN</Val>
+			<Val val="13">DyeColors.GREEN</Val>
+			<Val val="14">DyeColors.RED</Val>
+			<Val val="15">DyeColors.BLACK</Val>
 		</Prop>
 	</Block>
 	<Block type="WOOL">
-		<!-- TODO: FIX colors -->
-		<Prop bits="0xF" data="ColoredData" dataType="Color" key="COLOR">
-			<Val val="0">Color.WHITE</Val>
-			<Val val="1">Color.YELLOW</Val>
-			<Val val="2">Color.MAGENTA</Val>
-			<Val val="3">Color.BLUE</Val>
-			<Val val="4">Color.YELLOW</Val>
-			<Val val="5">Color.LIME</Val>
-			<Val val="6">Color.PINK</Val>
-			<Val val="7">Color.GRAY</Val>
-			<Val val="8">Color.GRAY</Val>
-			<Val val="9">Color.CYAN</Val>
-			<Val val="10">Color.PURPLE</Val>
-			<Val val="11">Color.BLUE</Val>
-			<Val val="12">Color.RED</Val>
-			<Val val="13">Color.GREEN</Val>
-			<Val val="14">Color.RED</Val>
-			<Val val="15">Color.BLACK</Val>
+		<Prop bits="0xF" data="DyableData" dataType="DyeColor" key="DYE_COLOR">
+			<Val val="0">DyeColors.WHITE</Val>
+			<Val val="1">DyeColors.ORANGE</Val>
+			<Val val="2">DyeColors.MAGENTA</Val>
+			<Val val="3">DyeColors.LIGHT_BLUE</Val>
+			<Val val="4">DyeColors.YELLOW</Val>
+			<Val val="5">DyeColors.LIME</Val>
+			<Val val="6">DyeColors.PINK</Val>
+			<Val val="7">DyeColors.SILVER</Val>
+			<Val val="8">DyeColors.GRAY</Val>
+			<Val val="9">DyeColors.CYAN</Val>
+			<Val val="10">DyeColors.PURPLE</Val>
+			<Val val="11">DyeColors.BLUE</Val>
+			<Val val="12">DyeColors.BROWN</Val>
+			<Val val="13">DyeColors.GREEN</Val>
+			<Val val="14">DyeColors.RED</Val>
+			<Val val="15">DyeColors.BLACK</Val>
 		</Prop>
 	</Block>
+	<!--VERSION: Not supported in 1.10-->
 	<!--Block type="TERRACOTTA">
-		<Prop bits="0xF" data="ColoredData" dataType="Color" key="COLOR">
-			<Val val="0">Color.WHITE</Val>
-			<Val val="1">Color.YELLOW</Val>
-			<Val val="2">Color.MAGENTA</Val>
-			<Val val="3">Color.BLUE</Val>
-			<Val val="4">Color.YELLOW</Val>
-			<Val val="5">Color.LIME</Val>
-			<Val val="6">Color.PINK</Val>
-			<Val val="7">Color.GRAY</Val>
-			<Val val="8">Color.GRAY</Val>
-			<Val val="9">Color.CYAN</Val>
-			<Val val="10">Color.PURPLE</Val>
-			<Val val="11">Color.BLUE</Val>
-			<Val val="12">Color.RED</Val>
-			<Val val="13">Color.GREEN</Val>
-			<Val val="14">Color.RED</Val>
-			<Val val="15">Color.BLACK</Val>
+		<Prop bits="0xF" data="DyableData" dataType="DyeColor" key="DYE_COLOR">
+			<Val val="0">DyeColors.WHITE</Val>
+			<Val val="1">DyeColors.ORANGE</Val>
+			<Val val="2">DyeColors.MAGENTA</Val>
+			<Val val="3">DyeColors.LIGHT_BLUE</Val>
+			<Val val="4">DyeColors.YELLOW</Val>
+			<Val val="5">DyeColors.LIME</Val>
+			<Val val="6">DyeColors.PINK</Val>
+			<Val val="7">DyeColors.SILVER</Val>
+			<Val val="8">DyeColors.GRAY</Val>
+			<Val val="9">DyeColors.CYAN</Val>
+			<Val val="10">DyeColors.PURPLE</Val>
+			<Val val="11">DyeColors.BLUE</Val>
+			<Val val="12">DyeColors.BROWN</Val>
+			<Val val="13">DyeColors.GREEN</Val>
+			<Val val="14">DyeColors.RED</Val>
+			<Val val="15">DyeColors.BLACK</Val>
 		</Prop>
 	</Block-->
 	<Block type="STAINED_GLASS">
-		<!-- TODO: FIX colors -->
-		<Prop bits="0xF" data="ColoredData" dataType="Color" key="COLOR">
-			<Val val="0">Color.WHITE</Val>
-			<Val val="1">Color.YELLOW</Val>
-			<Val val="2">Color.MAGENTA</Val>
-			<Val val="3">Color.BLUE</Val>
-			<Val val="4">Color.YELLOW</Val>
-			<Val val="5">Color.LIME</Val>
-			<Val val="6">Color.PINK</Val>
-			<Val val="7">Color.GRAY</Val>
-			<Val val="8">Color.GRAY</Val>
-			<Val val="9">Color.CYAN</Val>
-			<Val val="10">Color.PURPLE</Val>
-			<Val val="11">Color.BLUE</Val>
-			<Val val="12">Color.RED</Val>
-			<Val val="13">Color.GREEN</Val>
-			<Val val="14">Color.RED</Val>
-			<Val val="15">Color.BLACK</Val>
+		<Prop bits="0xF" data="DyableData" dataType="DyeColor" key="DYE_COLOR">
+			<Val val="0">DyeColors.WHITE</Val>
+			<Val val="1">DyeColors.ORANGE</Val>
+			<Val val="2">DyeColors.MAGENTA</Val>
+			<Val val="3">DyeColors.LIGHT_BLUE</Val>
+			<Val val="4">DyeColors.YELLOW</Val>
+			<Val val="5">DyeColors.LIME</Val>
+			<Val val="6">DyeColors.PINK</Val>
+			<Val val="7">DyeColors.SILVER</Val>
+			<Val val="8">DyeColors.GRAY</Val>
+			<Val val="9">DyeColors.CYAN</Val>
+			<Val val="10">DyeColors.PURPLE</Val>
+			<Val val="11">DyeColors.BLUE</Val>
+			<Val val="12">DyeColors.BROWN</Val>
+			<Val val="13">DyeColors.GREEN</Val>
+			<Val val="14">DyeColors.RED</Val>
+			<Val val="15">DyeColors.BLACK</Val>
 		</Prop>
 	</Block>
 	<Block type="TORCH">
@@ -238,4 +236,1318 @@
 			<Val val="5">Direction.UP</Val>
 		</Prop>
 	</Block>
+	<Block type="REDSTONE_TORCH">
+		<Prop bits="0xF" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="1">Direction.EAST</Val>
+			<Val val="2">Direction.WEST</Val>
+			<Val val="3">Direction.SOUTH</Val>
+			<Val val="4">Direction.NORTH</Val>
+			<Val val="5">Direction.UP</Val>
+		</Prop>
+	</Block>
+	<Block type="UNLIT_REDSTONE_TORCH">
+		<Prop bits="0xF" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="1">Direction.EAST</Val>
+			<Val val="2">Direction.WEST</Val>
+			<Val val="3">Direction.SOUTH</Val>
+			<Val val="4">Direction.NORTH</Val>
+			<Val val="5">Direction.UP</Val>
+		</Prop>
+	</Block>
+	<Block type="DOUBLE_STONE_SLAB">
+		<Prop bits="0x7" data="SlabData" dataType="SlabType" key="SLAB_TYPE">
+			<Val val="0">SlabTypes.STONE</Val>
+			<Val val="1">SlabTypes.SAND</Val>
+			<Val val="2">SlabTypes.WOOD</Val>
+			<Val val="3">SlabTypes.COBBLESTONE</Val>
+			<Val val="4">SlabTypes.BRICK</Val>
+			<Val val="5">SlabTypes.SMOOTH_BRICK</Val>
+			<Val val="6">SlabTypes.NETHERBRICK</Val>
+			<Val val="7">SlabTypes.QUARTZ</Val>
+		</Prop>
+		<Prop bits="0x8" data="SeamlessData" dataType="Boolean" key="SEAMLESS">
+			<Val val="0">false</Val>
+			<Val val="8">true</Val>
+		</Prop>
+	</Block>
+	<Block type="DOUBLE_STONE_SLAB2">
+		<Prop bits="0x7" data="SlabData" dataType="SlabType" key="SLAB_TYPE">
+			<Val val="0">SlabTypes.RED_SAND</Val>
+		</Prop>
+		<Prop bits="0x8" data="SeamlessData" dataType="Boolean" key="SEAMLESS">
+			<Val val="0">false</Val>
+			<Val val="8">true</Val>
+		</Prop>
+	</Block>
+	<Block type="STONE_SLAB">
+		<Prop bits="0x7" data="SlabData" dataType="SlabType" key="SLAB_TYPE">
+			<Val val="0">SlabTypes.STONE</Val>
+			<Val val="1">SlabTypes.SAND</Val>
+			<Val val="2">SlabTypes.WOOD</Val>
+			<Val val="3">SlabTypes.COBBLESTONE</Val>
+			<Val val="4">SlabTypes.BRICK</Val>
+			<Val val="5">SlabTypes.SMOOTH_BRICK</Val>
+			<Val val="6">SlabTypes.NETHERBRICK</Val>
+			<Val val="7">SlabTypes.QUARTZ</Val>
+		</Prop>
+		<Prop bits="0x8" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="8">PortionTypes.TOP</Val>
+		</Prop>
+	</Block>
+	<Block type="STONE_SLAB2">
+		<Prop bits="0x7" data="SlabData" dataType="SlabType" key="SLAB_TYPE">
+			<Val val="0">SlabTypes.RED_SAND</Val>
+		</Prop>
+		<Prop bits="0x8" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="8">PortionTypes.TOP</Val>
+		</Prop>
+	</Block>
+	<Block type="DOUBLE_WOODEN_SLAB">
+		<Prop bits="0xF" data="TreeData" dataType="TreeType" key="TREE_TYPE">
+			<Val val="0">TreeTypes.OAK</Val>
+			<Val val="1">TreeTypes.SPRUCE</Val>
+			<Val val="2">TreeTypes.BIRCH</Val>
+			<Val val="3">TreeTypes.JUNGLE</Val>
+			<Val val="4">TreeTypes.ACACIA</Val>
+			<Val val="5">TreeTypes.DARK_OAK</Val>
+		</Prop>
+	</Block>
+	<Block type="WOODEN_SLAB">
+		<Prop bits="0x7" data="TreeData" dataType="TreeType" key="TREE_TYPE">
+			<Val val="0">TreeTypes.OAK</Val>
+			<Val val="1">TreeTypes.SPRUCE</Val>
+			<Val val="2">TreeTypes.BIRCH</Val>
+			<Val val="3">TreeTypes.JUNGLE</Val>
+			<Val val="4">TreeTypes.ACACIA</Val>
+			<Val val="5">TreeTypes.DARK_OAK</Val>
+		</Prop>
+		<Prop bits="0x8" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="8">PortionTypes.TOP</Val>
+		</Prop>
+	</Block>
+	<Block type="SANDSTONE">
+		<Prop bits="0xF" data="SandstoneData" dataType="SandstoneType" key="SANDSTONE_TYPE">
+			<Val val="0">SandstoneTypes.DEFAULT</Val>
+			<Val val="1">SandstoneTypes.CHISELED</Val>
+			<Val val="2">SandstoneTypes.SMOOTH</Val>
+		</Prop>
+	</Block>
+	<Block type="BED">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.SOUTH</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.EAST</Val>
+		</Prop>
+		<Prop bits="0x4" data="OccupiedData" dataType="Boolean" key="OCCUPIED">
+			<Val val="0">false</Val>
+			<Val val="4">true</Val>
+		</Prop>
+		<Prop bits="0x8" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="8">PortionTypes.TOP</Val>
+		</Prop>
+	</Block>
+	<Block type="TALLGRASS">
+		<Prop bits="0xF" data="ShrubData" dataType="ShrubType" key="SHRUB_TYPE">
+			<Val val="0">ShrubTypes.DEAD_BUSH</Val>
+			<Val val="1">ShrubTypes.TALL_GRASS</Val>
+			<Val val="2">ShrubTypes.FERN</Val>
+		</Prop>
+	</Block>
+	<Block type="RED_FLOWER">
+		<Prop bits="0xF" data="PlantData" dataType="PlantType" key="PLANT_TYPE">
+			<Val val="0">PlantTypes.POPPY</Val>
+			<Val val="1">PlantTypes.BLUE_ORCHID</Val>
+			<Val val="2">PlantTypes.ALLIUM</Val>
+			<Val val="3">PlantTypes.HOUSTONIA</Val>
+			<Val val="4">PlantTypes.RED_TULIP</Val>
+			<Val val="5">PlantTypes.ORANGE_TULIP</Val>
+			<Val val="6">PlantTypes.WHITE_TULIP</Val>
+			<Val val="7">PlantTypes.PINK_TULIP</Val>
+			<Val val="8">PlantTypes.OXEYE_DAISY</Val>
+		</Prop>
+	</Block>
+	<Block type="DOUBLE_PLANT">
+		<Prop bits="0x7" data="DoublePlantData" dataType="DoublePlantType" key="DOUBLE_PLANT_TYPE">
+			<Val val="0">DoublePlantTypes.SUNFLOWER</Val>
+			<Val val="1">DoublePlantTypes.SYRINGA</Val>
+			<Val val="2">DoublePlantTypes.GRASS</Val>
+			<Val val="3">DoublePlantTypes.FERN</Val>
+			<Val val="4">DoublePlantTypes.ROSE</Val>
+			<Val val="5">DoublePlantTypes.PAEONIA</Val>
+		</Prop>
+		<Prop bits="0x8" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="8">PortionTypes.TOP</Val>
+		</Prop>
+	</Block>
+	<Block type="PISTON">
+		<Prop bits="0x7" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.DOWN</Val>
+			<Val val="1">Direction.UP</Val>
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.SOUTH</Val>
+			<Val val="4">Direction.WEST</Val>
+			<Val val="5">Direction.EAST</Val>
+		</Prop>
+		<Prop bits="0x8" data="ExtendedData" dataType="Boolean" key="EXTENDED">
+			<Val val="0">false</Val>
+			<Val val="8">true</Val>
+		</Prop>
+	</Block>
+	<Block type="STICKY_PISTON">
+		<Prop bits="0x7" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.DOWN</Val>
+			<Val val="1">Direction.UP</Val>
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.SOUTH</Val>
+			<Val val="4">Direction.WEST</Val>
+			<Val val="5">Direction.EAST</Val>
+		</Prop>
+		<Prop bits="0x8" data="ExtendedData" dataType="Boolean" key="EXTENDED">
+			<Val val="0">false</Val>
+			<Val val="8">true</Val>
+		</Prop>
+	</Block>
+	<Block type="PISTON_HEAD">
+		<Prop bits="0x7" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.DOWN</Val>
+			<Val val="1">Direction.UP</Val>
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.SOUTH</Val>
+			<Val val="4">Direction.WEST</Val>
+			<Val val="5">Direction.EAST</Val>
+		</Prop>
+		<Prop bits="0x8" data="PistonData" dataType="PistonType" key="PISTON_TYPE">
+			<Val val="0">PistonTypes.NORMAL</Val>
+			<Val val="8">PistonTypes.STICKY</Val>
+		</Prop>
+	</Block>
+	<Block type="OAK_STAIRS">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.EAST</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.NORTH</Val>
+		</Prop>
+		<Prop bits="0x4" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="4">PortionTypes.TOP</Val>
+		</Prop>
+	</Block>
+	<Block type="STONE_STAIRS">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.EAST</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.NORTH</Val>
+		</Prop>
+		<Prop bits="0x4" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="4">PortionTypes.TOP</Val>
+		</Prop>
+	</Block>
+	<Block type="BRICK_STAIRS">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.EAST</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.NORTH</Val>
+		</Prop>
+		<Prop bits="0x4" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="4">PortionTypes.TOP</Val>
+		</Prop>
+	</Block>
+	<Block type="STONE_BRICK_STAIRS">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.EAST</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.NORTH</Val>
+		</Prop>
+		<Prop bits="0x4" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="4">PortionTypes.TOP</Val>
+		</Prop>
+	</Block>
+	<Block type="NETHER_BRICK_STAIRS">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.EAST</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.NORTH</Val>
+		</Prop>
+		<Prop bits="0x4" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="4">PortionTypes.TOP</Val>
+		</Prop>
+	</Block>
+	<Block type="SANDSTONE_STAIRS">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.EAST</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.NORTH</Val>
+		</Prop>
+		<Prop bits="0x4" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="4">PortionTypes.TOP</Val>
+		</Prop>
+	</Block>
+	<Block type="SPRUCE_STAIRS">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.EAST</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.NORTH</Val>
+		</Prop>
+		<Prop bits="0x4" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="4">PortionTypes.TOP</Val>
+		</Prop>
+	</Block>
+	<Block type="BIRCH_STAIRS">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.EAST</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.NORTH</Val>
+		</Prop>
+		<Prop bits="0x4" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="4">PortionTypes.TOP</Val>
+		</Prop>
+	</Block>
+	<Block type="JUNGLE_STAIRS">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.EAST</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.NORTH</Val>
+		</Prop>
+		<Prop bits="0x4" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="4">PortionTypes.TOP</Val>
+		</Prop>
+	</Block>
+	<Block type="QUARTZ_STAIRS">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.EAST</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.NORTH</Val>
+		</Prop>
+		<Prop bits="0x4" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="4">PortionTypes.TOP</Val>
+		</Prop>
+	</Block>
+	<Block type="ACACIA_STAIRS">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.EAST</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.NORTH</Val>
+		</Prop>
+		<Prop bits="0x4" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="4">PortionTypes.TOP</Val>
+		</Prop>
+	</Block>
+	<Block type="DARK_OAK_STAIRS">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.EAST</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.NORTH</Val>
+		</Prop>
+		<Prop bits="0x4" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="4">PortionTypes.TOP</Val>
+		</Prop>
+	</Block>
+	<Block type="RED_SANDSTONE_STAIRS">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.EAST</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.NORTH</Val>
+		</Prop>
+		<Prop bits="0x4" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="4">PortionTypes.TOP</Val>
+		</Prop>
+	</Block>
+	<Block type="PURPUR_STAIRS">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.EAST</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.NORTH</Val>
+		</Prop>
+		<Prop bits="0x4" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="4">PortionTypes.TOP</Val>
+		</Prop>
+	</Block>
+	<Block type="REDSTONE_WIRE">
+		<Prop bits="0xF" data="RedstonePoweredData" dataType="Integer" key="POWER">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+			<Val val="4">4</Val>
+			<Val val="5">5</Val>
+			<Val val="6">6</Val>
+			<Val val="7">7</Val>
+			<Val val="8">8</Val>
+			<Val val="9">9</Val>
+			<Val val="10">10</Val>
+			<Val val="11">11</Val>
+			<Val val="12">12</Val>
+			<Val val="13">13</Val>
+			<Val val="14">14</Val>
+			<Val val="15">15</Val>
+		</Prop>
+	</Block>
+	<Block type="DAYLIGHT_DETECTOR">
+		<Prop bits="0xF" data="RedstonePoweredData" dataType="Integer" key="POWER">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+			<Val val="4">4</Val>
+			<Val val="5">5</Val>
+			<Val val="6">6</Val>
+			<Val val="7">7</Val>
+			<Val val="8">8</Val>
+			<Val val="9">9</Val>
+			<Val val="10">10</Val>
+			<Val val="11">11</Val>
+			<Val val="12">12</Val>
+			<Val val="13">13</Val>
+			<Val val="14">14</Val>
+			<Val val="15">15</Val>
+		</Prop>
+	</Block>
+	<Block type="WHEAT">
+		<Prop bits="0xF" data="GrowthData" dataType="Integer" key="GROWTH_STAGE">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+			<Val val="4">4</Val>
+			<Val val="5">5</Val>
+			<Val val="6">6</Val>
+			<Val val="7">7</Val>
+		</Prop>
+	</Block>
+	<Block type="CARROTS">
+		<Prop bits="0xF" data="GrowthData" dataType="Integer" key="GROWTH_STAGE">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+			<Val val="4">4</Val>
+			<Val val="5">5</Val>
+			<Val val="6">6</Val>
+			<Val val="7">7</Val>
+		</Prop>
+	</Block>
+	<Block type="POTATOES">
+		<Prop bits="0xF" data="GrowthData" dataType="Integer" key="GROWTH_STAGE">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+			<Val val="4">4</Val>
+			<Val val="5">5</Val>
+			<Val val="6">6</Val>
+			<Val val="7">7</Val>
+		</Prop>
+	</Block>
+	<Block type="BEETROOTS">
+		<Prop bits="0xF" data="GrowthData" dataType="Integer" key="GROWTH_STAGE">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+			<Val val="4">4</Val>
+			<Val val="5">5</Val>
+			<Val val="6">6</Val>
+			<Val val="7">7</Val>
+		</Prop>
+	</Block>
+	<Block type="FARMLAND">
+		<Prop bits="0xF" data="MoistureData" dataType="Integer" key="MOISTURE">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+			<Val val="4">4</Val>
+			<Val val="5">5</Val>
+			<Val val="6">6</Val>
+			<Val val="7">7</Val>
+		</Prop>
+	</Block>
+	<Block type="STANDING_BANNER">
+		<Prop bits="0xF" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.SOUTH</Val>
+			<Val val="1">Direction.SOUTH_SOUTHWEST</Val>
+			<Val val="2">Direction.SOUTHWEST</Val>
+			<Val val="3">Direction.WEST_SOUTHWEST</Val>
+			<Val val="4">Direction.WEST</Val>
+			<Val val="5">Direction.WEST_NORTHWEST</Val>
+			<Val val="6">Direction.NORTHWEST</Val>
+			<Val val="7">Direction.NORTH_NORTHWEST</Val>
+			<Val val="8">Direction.NORTH</Val>
+			<Val val="9">Direction.NORTH_NORTHEAST</Val>
+			<Val val="10">Direction.NORTHEAST</Val>
+			<Val val="11">Direction.EAST_NORTHEAST</Val>
+			<Val val="12">Direction.EAST</Val>
+			<Val val="13">Direction.EAST_SOUTHEAST</Val>
+			<Val val="14">Direction.SOUTHEAST</Val>
+			<Val val="15">Direction.SOUTH_SOUTHEAST</Val>
+		</Prop>
+	</Block>
+	<Block type="WALL_BANNER">
+		<Prop bits="0xF" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.SOUTH</Val>
+			<Val val="4">Direction.WEST</Val>
+			<Val val="5">Direction.EAST</Val>
+		</Prop>
+	</Block>
+	<Block type="WOODEN_DOOR">
+		<Prop bits="0x8" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="8">PortionTypes.TOP</Val>
+			<!-- TODO There is more data here, but it depends on if it is the top or bottom part of the door-->
+		</Prop>
+	</Block>
+	<Block type="IRON_DOOR">
+		<Prop bits="0x8" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="8">PortionTypes.TOP</Val>
+			<!-- TODO There is more data here, but it depends on if it is the top or bottom part of the door-->
+		</Prop>
+	</Block>
+	<Block type="SPRUCE_DOOR">
+		<Prop bits="0x8" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="8">PortionTypes.TOP</Val>
+			<!-- TODO There is more data here, but it depends on if it is the top or bottom part of the door-->
+		</Prop>
+	</Block>
+	<Block type="BIRCH_DOOR">
+		<Prop bits="0x8" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="8">PortionTypes.TOP</Val>
+			<!-- TODO There is more data here, but it depends on if it is the top or bottom part of the door-->
+		</Prop>
+	</Block>
+	<Block type="JUNGLE_DOOR">
+		<Prop bits="0x8" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="8">PortionTypes.TOP</Val>
+			<!-- TODO There is more data here, but it depends on if it is the top or bottom part of the door-->
+		</Prop>
+	</Block>
+	<Block type="ACACIA_DOOR">
+		<Prop bits="0x8" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="8">PortionTypes.TOP</Val>
+			<!-- TODO There is more data here, but it depends on if it is the top or bottom part of the door-->
+		</Prop>
+	</Block>
+	<Block type="DARK_OAK_DOOR">
+		<Prop bits="0x8" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="8">PortionTypes.TOP</Val>
+			<!-- TODO There is more data here, but it depends on if it is the top or bottom part of the door-->
+		</Prop>
+	</Block>
+	<Block type="RAIL">
+		<Prop bits="0x8" data="RailDirectionData" dataType="RailDirection" key="RAIL_DIRECTION">
+			<Val val="0">RailDirections.NORTH_SOUTH</Val>
+			<Val val="1">RailDirections.EAST_WEST</Val>
+			<Val val="2">RailDirections.ASCENDING_EAST</Val>
+			<Val val="3">RailDirections.ASCENDING_WEST</Val>
+			<Val val="4">RailDirections.ASCENDING_NORTH</Val>
+			<Val val="5">RailDirections.ASCENDING_SOUTH</Val>
+			<Val val="6">RailDirections.SOUTH_EAST</Val>
+			<Val val="7">RailDirections.SOUTH_WEST</Val>
+			<Val val="8">RailDirections.NORTH_WEST</Val>
+			<Val val="9">RailDirections.NORTH_EAST</Val>
+		</Prop>
+	</Block>
+	<Block type="ACTIVATOR_RAIL">
+		<Prop bits="0x7" data="RailDirectionData" dataType="RailDirection" key="RAIL_DIRECTION">
+			<Val val="0">RailDirections.NORTH_SOUTH</Val>
+			<Val val="1">RailDirections.EAST_WEST</Val>
+			<Val val="2">RailDirections.ASCENDING_EAST</Val>
+			<Val val="3">RailDirections.ASCENDING_WEST</Val>
+			<Val val="4">RailDirections.ASCENDING_NORTH</Val>
+			<Val val="5">RailDirections.ASCENDING_SOUTH</Val>
+		</Prop>
+		<Prop bits="0x8" data="PoweredData" dataType="Boolean" key="POWERED">
+			<Val val="0">false</Val>
+			<Val val="8">true</Val>
+		</Prop>
+	</Block>
+	<Block type="DETECTOR_RAIL">
+		<Prop bits="0x7" data="RailDirectionData" dataType="RailDirection" key="RAIL_DIRECTION">
+			<Val val="0">RailDirections.NORTH_SOUTH</Val>
+			<Val val="1">RailDirections.EAST_WEST</Val>
+			<Val val="2">RailDirections.ASCENDING_EAST</Val>
+			<Val val="3">RailDirections.ASCENDING_WEST</Val>
+			<Val val="4">RailDirections.ASCENDING_NORTH</Val>
+			<Val val="5">RailDirections.ASCENDING_SOUTH</Val>
+		</Prop>
+		<Prop bits="0x8" data="PoweredData" dataType="Boolean" key="POWERED">
+			<Val val="0">false</Val>
+			<Val val="8">true</Val>
+		</Prop>
+	</Block>
+	<Block type="GOLDEN_RAIL">
+		<Prop bits="0x7" data="RailDirectionData" dataType="RailDirection" key="RAIL_DIRECTION">
+			<Val val="0">RailDirections.NORTH_SOUTH</Val>
+			<Val val="1">RailDirections.EAST_WEST</Val>
+			<Val val="2">RailDirections.ASCENDING_EAST</Val>
+			<Val val="3">RailDirections.ASCENDING_WEST</Val>
+			<Val val="4">RailDirections.ASCENDING_NORTH</Val>
+			<Val val="5">RailDirections.ASCENDING_SOUTH</Val>
+		</Prop>
+		<Prop bits="0x8" data="PoweredData" dataType="Boolean" key="POWERED">
+			<Val val="0">false</Val>
+			<Val val="8">true</Val>
+		</Prop>
+	</Block>
+	<Block type="LADDER">
+		<Prop bits="0x7" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.SOUTH</Val>
+			<Val val="4">Direction.WEST</Val>
+			<Val val="5">Direction.EAST</Val>
+		</Prop>
+	</Block>
+	<Block type="FURNACE">
+		<Prop bits="0x7" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.SOUTH</Val>
+			<Val val="4">Direction.WEST</Val>
+			<Val val="5">Direction.EAST</Val>
+		</Prop>
+	</Block>
+	<Block type="LIT_FURNACE">
+		<Prop bits="0x7" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.SOUTH</Val>
+			<Val val="4">Direction.WEST</Val>
+			<Val val="5">Direction.EAST</Val>
+		</Prop>
+	</Block>
+	<Block type="CHEST">
+		<Prop bits="0x7" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.SOUTH</Val>
+			<Val val="4">Direction.WEST</Val>
+			<Val val="5">Direction.EAST</Val>
+		</Prop>
+	</Block>
+	<Block type="ENDER_CHEST">
+		<Prop bits="0x7" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.SOUTH</Val>
+			<Val val="4">Direction.WEST</Val>
+			<Val val="5">Direction.EAST</Val>
+		</Prop>
+	</Block>
+	<Block type="TRAPPED_CHEST">
+		<Prop bits="0x7" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.SOUTH</Val>
+			<Val val="4">Direction.WEST</Val>
+			<Val val="5">Direction.EAST</Val>
+		</Prop>
+	</Block>
+	<Block type="STANDING_SIGN">
+		<Prop bits="0xF" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.SOUTH</Val>
+			<Val val="1">Direction.SOUTH_SOUTHWEST</Val>
+			<Val val="2">Direction.SOUTHWEST</Val>
+			<Val val="3">Direction.WEST_SOUTHWEST</Val>
+			<Val val="4">Direction.WEST</Val>
+			<Val val="5">Direction.WEST_NORTHWEST</Val>
+			<Val val="6">Direction.NORTHWEST</Val>
+			<Val val="7">Direction.NORTH_NORTHWEST</Val>
+			<Val val="8">Direction.NORTH</Val>
+			<Val val="9">Direction.NORTH_NORTHEAST</Val>
+			<Val val="10">Direction.NORTHEAST</Val>
+			<Val val="11">Direction.EAST_NORTHEAST</Val>
+			<Val val="12">Direction.EAST</Val>
+			<Val val="13">Direction.EAST_SOUTHEAST</Val>
+			<Val val="14">Direction.SOUTHEAST</Val>
+			<Val val="15">Direction.SOUTH_SOUTHEAST</Val>
+		</Prop>
+	</Block>
+	<Block type="WALL_SIGN">
+		<Prop bits="0xF" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.SOUTH</Val>
+			<Val val="4">Direction.WEST</Val>
+			<Val val="5">Direction.EAST</Val>
+		</Prop>
+	</Block>
+	<Block type="DROPPER">
+		<Prop bits="0x7" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.DOWN</Val>
+			<Val val="1">Direction.UP</Val>
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.SOUTH</Val>
+			<Val val="4">Direction.WEST</Val>
+			<Val val="5">Direction.EAST</Val>
+		</Prop>
+		<Prop bits="0x8" data="PoweredData" dataType="Boolean" key="POWERED">
+			<Val val="0">false</Val>
+			<Val val="8">true</Val>
+		</Prop>
+	</Block>
+	<Block type="DISPENSER">
+		<Prop bits="0x7" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.DOWN</Val>
+			<Val val="1">Direction.UP</Val>
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.SOUTH</Val>
+			<Val val="4">Direction.WEST</Val>
+			<Val val="5">Direction.EAST</Val>
+		</Prop>
+		<Prop bits="0x8" data="PoweredData" dataType="Boolean" key="POWERED">
+			<Val val="0">false</Val>
+			<Val val="8">true</Val>
+		</Prop>
+	</Block>
+	<Block type="HOPPER">
+		<Prop bits="0x7" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.DOWN</Val>
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.SOUTH</Val>
+			<Val val="4">Direction.WEST</Val>
+			<Val val="5">Direction.EAST</Val>
+		</Prop>
+		<Prop bits="0x8" data="PoweredData" dataType="Boolean" key="POWERED">
+			<Val val="0">false</Val>
+			<Val val="8">true</Val>
+		</Prop>
+	</Block>
+	<Block type="LEVER">
+		<Prop bits="0x7" data="AxisData" dataType="Axis" key="AXIS">
+			<Val val="0">Axis.X</Val>
+			<Val val="1">Axis.Y</Val>
+			<Val val="2">Axis.Y</Val>
+			<Val val="3">Axis.Y</Val>
+			<Val val="4">Axis.Y</Val>
+			<Val val="5">Axis.Z</Val>
+			<Val val="6">Axis.X</Val>
+			<Val val="7">Axis.Z</Val>
+		</Prop>
+		<Prop bits="0x7" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.DOWN</Val>
+			<Val val="1">Direction.EAST</Val>
+			<Val val="2">Direction.WEST</Val>
+			<Val val="3">Direction.SOUTH</Val>
+			<Val val="4">Direction.NORTH</Val>
+			<Val val="5">Direction.UP</Val>
+			<Val val="6">Direction.UP</Val>
+			<Val val="7">Direction.DOWN</Val>
+		</Prop>
+		<Prop bits="0x8" data="PoweredData" dataType="Boolean" key="POWERED">
+			<Val val="0">false</Val>
+			<Val val="8">true</Val>
+		</Prop>
+	</Block>
+	<Block type="STONE_PRESSURE_PLATE">
+		<Prop bits="0x1" data="PoweredData" dataType="Boolean" key="POWERED">
+			<Val val="0">false</Val>
+			<Val val="1">true</Val>
+		</Prop>
+	</Block>
+	<Block type="WOODEN_PRESSURE_PLATE">
+		<Prop bits="0x1" data="PoweredData" dataType="Boolean" key="POWERED">
+			<Val val="0">false</Val>
+			<Val val="1">true</Val>
+		</Prop>
+	</Block>
+	<Block type="LIGHT_WEIGHTED_PRESSURE_PLATE">
+		<Prop bits="0xF" data="RedstonePoweredData" dataType="Integer" key="POWER">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+			<Val val="4">4</Val>
+			<Val val="5">5</Val>
+			<Val val="6">6</Val>
+			<Val val="7">7</Val>
+			<Val val="8">8</Val>
+			<Val val="9">9</Val>
+			<Val val="10">10</Val>
+			<Val val="11">11</Val>
+			<Val val="12">12</Val>
+			<Val val="13">13</Val>
+			<Val val="14">14</Val>
+			<Val val="15">15</Val>
+		</Prop>
+	</Block>
+	<Block type="HEAVY_WEIGHTED_PRESSURE_PLATE">
+		<Prop bits="0xF" data="RedstonePoweredData" dataType="Integer" key="POWER">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+			<Val val="4">4</Val>
+			<Val val="5">5</Val>
+			<Val val="6">6</Val>
+			<Val val="7">7</Val>
+			<Val val="8">8</Val>
+			<Val val="9">9</Val>
+			<Val val="10">10</Val>
+			<Val val="11">11</Val>
+			<Val val="12">12</Val>
+			<Val val="13">13</Val>
+			<Val val="14">14</Val>
+			<Val val="15">15</Val>
+		</Prop>
+	</Block>
+	<Block type="STONE_BUTTON">
+		<Prop bits="0x7" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.DOWN</Val>
+			<Val val="1">Direction.EAST</Val>
+			<Val val="2">Direction.WEST</Val>
+			<Val val="3">Direction.SOUTH</Val>
+			<Val val="4">Direction.NORTH</Val>
+			<Val val="5">Direction.UP</Val>
+		</Prop>
+		<Prop bits="0x8" data="PoweredData" dataType="Boolean" key="POWERED">
+			<Val val="0">false</Val>
+			<Val val="8">true</Val>
+		</Prop>
+	</Block>
+	<Block type="WOODEN_BUTTON">
+		<Prop bits="0x7" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.DOWN</Val>
+			<Val val="1">Direction.EAST</Val>
+			<Val val="2">Direction.WEST</Val>
+			<Val val="3">Direction.SOUTH</Val>
+			<Val val="4">Direction.NORTH</Val>
+			<Val val="5">Direction.UP</Val>
+		</Prop>
+		<Prop bits="0x8" data="PoweredData" dataType="Boolean" key="POWERED">
+			<Val val="0">false</Val>
+			<Val val="8">true</Val>
+		</Prop>
+	</Block>
+	<Block type="SNOW_LAYER">
+		<Prop bits="0x7" data="LayeredData" dataType="Integer" key="LAYER">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+			<Val val="4">4</Val>
+			<Val val="5">5</Val>
+			<Val val="6">6</Val>
+			<Val val="7">7</Val>
+		</Prop>
+	</Block>
+	<Block type="CACTUS">
+		<Prop bits="0xF" data="GrowthData" dataType="Integer" key="GROWTH_STAGE">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+			<Val val="4">4</Val>
+			<Val val="5">5</Val>
+			<Val val="6">6</Val>
+			<Val val="7">7</Val>
+			<Val val="8">8</Val>
+			<Val val="9">9</Val>
+			<Val val="10">10</Val>
+			<Val val="11">11</Val>
+			<Val val="12">12</Val>
+			<Val val="13">13</Val>
+			<Val val="14">14</Val>
+			<Val val="15">15</Val>
+		</Prop>
+	</Block>
+	<Block type="REEDS">
+		<Prop bits="0xF" data="GrowthData" dataType="Integer" key="GROWTH_STAGE">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+			<Val val="4">4</Val>
+			<Val val="5">5</Val>
+			<Val val="6">6</Val>
+			<Val val="7">7</Val>
+			<Val val="8">8</Val>
+			<Val val="9">9</Val>
+			<Val val="10">10</Val>
+			<Val val="11">11</Val>
+			<Val val="12">12</Val>
+			<Val val="13">13</Val>
+			<Val val="14">14</Val>
+			<Val val="15">15</Val>
+		</Prop>
+	</Block>
+	<!--TODO: Block type="JUKEBOX">
+	</Block-->
+	<Block type="PUMPKIN">
+		<Prop bits="0xF" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.SOUTH</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.EAST</Val>
+			<Val val="4">Direction.NONE</Val>
+		</Prop>
+	</Block>
+	<Block type="LIT_PUMPKIN">
+		<Prop bits="0xF" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.SOUTH</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.EAST</Val>
+			<Val val="4">Direction.NONE</Val>
+		</Prop>
+	</Block>
+	<Block type="CAKE">
+		<Prop bits="0xF" data="LayeredData" dataType="Integer" key="LAYER">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+			<Val val="4">4</Val>
+			<Val val="5">5</Val>
+			<Val val="6">6</Val>
+		</Prop>
+	</Block>
+	<Block type="UNPOWERED_REPEATER">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.NORTH</Val>
+			<Val val="1">Direction.EAST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.WEST</Val>
+		</Prop>
+		<Prop bits="0xC" data="DelayableData" dataType="Integer" key="DELAY">
+			<Val val="0">1</Val>
+			<Val val="4">2</Val>
+			<Val val="8">3</Val>
+			<Val val="12">4</Val>
+		</Prop>
+	</Block>
+	<Block type="POWERED_REPEATER">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.NORTH</Val>
+			<Val val="1">Direction.EAST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.WEST</Val>
+		</Prop>
+		<Prop bits="0xC" data="DelayableData" dataType="Integer" key="DELAY">
+			<Val val="0">1</Val>
+			<Val val="4">2</Val>
+			<Val val="8">3</Val>
+			<Val val="12">4</Val>
+		</Prop>
+	</Block>
+	<Block type="UNPOWERED_COMPARATOR">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.NORTH</Val>
+			<Val val="1">Direction.EAST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.WEST</Val>
+		</Prop>
+		<Prop bits="0x4" data="ComparatorData" dataType="ComparatorType" key="COMPARATOR_TYPE">
+			<Val val="0">ComparatorTypes.COMPARE</Val>
+			<Val val="4">ComparatorTypes.SUBTRACT</Val>
+		</Prop>
+		<Prop bits="0x8" data="PoweredData" dataType="Boolean" key="POWERED">
+			<Val val="0">false</Val>
+			<Val val="8">true</Val>
+		</Prop>
+	</Block>
+	<Block type="POWERED_COMPARATOR">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.NORTH</Val>
+			<Val val="1">Direction.EAST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.WEST</Val>
+		</Prop>
+		<Prop bits="0x4" data="ComparatorData" dataType="ComparatorType" key="COMPARATOR_TYPE">
+			<Val val="0">ComparatorTypes.COMPARE</Val>
+			<Val val="4">ComparatorTypes.SUBTRACT</Val>
+		</Prop>
+		<Prop bits="0x8" data="PoweredData" dataType="Boolean" key="POWERED">
+			<Val val="0">false</Val>
+			<Val val="8">true</Val>
+		</Prop>
+	</Block>
+	<Block type="TRAPDOOR">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.NORTH</Val>
+			<Val val="1">Direction.EAST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.WEST</Val>
+		</Prop>
+		<Prop bits="0x4" data="OpenData" dataType="Boolean" key="OPEN">
+			<Val val="0">false</Val>
+			<Val val="4">true</Val>
+		</Prop>
+		<Prop bits="0x8" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="8">PortionTypes.TOP</Val>
+		</Prop>
+	</Block>
+	<Block type="IRON_TRAPDOOR">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.NORTH</Val>
+			<Val val="1">Direction.EAST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.WEST</Val>
+		</Prop>
+		<Prop bits="0x4" data="OpenData" dataType="Boolean" key="OPEN">
+			<Val val="0">false</Val>
+			<Val val="4">true</Val>
+		</Prop>
+		<Prop bits="0x8" data="PortionData" dataType="PortionType" key="PORTION_TYPE">
+			<Val val="0">PortionTypes.BOTTOM</Val>
+			<Val val="8">PortionTypes.TOP</Val>
+		</Prop>
+	</Block>
+	<Block type="MONSTER_EGG">
+		<Prop bits="0xF" data="DisguisedBlockData" dataType="DisguisedBlockType" key="DISGUISED_BLOCK_TYPE">
+			<Val val="0">DisguisedBlockTypes.STONE</Val>
+			<Val val="1">DisguisedBlockTypes.COBBLESTONE</Val>
+			<Val val="2">DisguisedBlockTypes.STONEBRICK</Val>
+			<Val val="3">DisguisedBlockTypes.MOSSY_STONEBRICK</Val>
+			<Val val="4">DisguisedBlockTypes.CRACKED_STONEBRICK</Val>
+			<Val val="5">DisguisedBlockTypes.CHISELED_STONEBRICK</Val>
+		</Prop>
+	</Block>
+	<Block type="STONEBRICK">
+		<Prop bits="0xF" data="BrickData" dataType="BrickType" key="BRICK_TYPE">
+			<Val val="0">BrickTypes.DEFAULT</Val>
+			<Val val="1">BrickTypes.MOSSY</Val>
+			<Val val="2">BrickTypes.CRACKED</Val>
+			<Val val="3">BrickTypes.CHISELED</Val>
+		</Prop>
+	</Block>
+	<Block type="PRISMARINE">
+		<Prop bits="0xF" data="PrismarineData" dataType="PrismarineType" key="PRISMARINE_TYPE">
+			<Val val="0">PrismarineTypes.ROUGH</Val>
+			<Val val="1">PrismarineTypes.BRICKS</Val>
+			<Val val="2">PrismarineTypes.DARK</Val>
+		</Prop>
+	</Block>
+	<Block type="SPONGE">
+		<Prop bits="0xF" data="WetData" dataType="Boolean" key="IS_WET">
+			<Val val="0">false</Val>
+			<Val val="1">true</Val>
+		</Prop>
+	</Block>
+	<Block type="BROWN_MUSHROOM_BLOCK">
+		<Prop bits="0xF" data="BigMushroomData" dataType="BigMushroomType" key="BIG_MUSHROOM_TYPE">
+			<Val val="0">BigMushroomTypes.ALL_INSIDE</Val>
+			<Val val="1">BigMushroomTypes.NORTH_WEST</Val>
+			<Val val="2">BigMushroomTypes.NORTH</Val>
+			<Val val="3">BigMushroomTypes.NORTH_EAST</Val>
+			<Val val="4">BigMushroomTypes.WEST</Val>
+			<Val val="5">BigMushroomTypes.CENTER</Val>
+			<Val val="6">BigMushroomTypes.EAST</Val>
+			<Val val="7">BigMushroomTypes.SOUTH_WEST</Val>
+			<Val val="8">BigMushroomTypes.SOUTH</Val>
+			<Val val="9">BigMushroomTypes.SOUTH_EAST</Val>
+			<Val val="10">BigMushroomTypes.STEM</Val>
+			<Val val="14">BigMushroomTypes.ALL_OUTSIDE</Val>
+			<Val val="15">BigMushroomTypes.ALL_STEM</Val>
+		</Prop>
+	</Block>
+	<Block type="RED_MUSHROOM_BLOCK">
+		<Prop bits="0xF" data="BigMushroomData" dataType="BigMushroomType" key="BIG_MUSHROOM_TYPE">
+			<Val val="0">BigMushroomTypes.ALL_INSIDE</Val>
+			<Val val="1">BigMushroomTypes.NORTH_WEST</Val>
+			<Val val="2">BigMushroomTypes.NORTH</Val>
+			<Val val="3">BigMushroomTypes.NORTH_EAST</Val>
+			<Val val="4">BigMushroomTypes.WEST</Val>
+			<Val val="5">BigMushroomTypes.CENTER</Val>
+			<Val val="6">BigMushroomTypes.EAST</Val>
+			<Val val="7">BigMushroomTypes.SOUTH_WEST</Val>
+			<Val val="8">BigMushroomTypes.SOUTH</Val>
+			<Val val="9">BigMushroomTypes.SOUTH_EAST</Val>
+			<Val val="10">BigMushroomTypes.STEM</Val>
+			<Val val="14">BigMushroomTypes.ALL_OUTSIDE</Val>
+			<Val val="15">BigMushroomTypes.ALL_STEM</Val>
+		</Prop>
+	</Block>
+	<Block type="PUMPKIN_STEM">
+		<Prop bits="0xF" data="GrowthData" dataType="Integer" key="GROWTH_STAGE">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+			<Val val="4">4</Val>
+			<Val val="5">5</Val>
+			<Val val="6">6</Val>
+			<Val val="7">7</Val>
+		</Prop>
+	</Block>
+	<Block type="MELON_STEM">
+		<Prop bits="0xF" data="GrowthData" dataType="Integer" key="GROWTH_STAGE">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+			<Val val="4">4</Val>
+			<Val val="5">5</Val>
+			<Val val="6">6</Val>
+			<Val val="7">7</Val>
+		</Prop>
+	</Block>
+	<Block type="VINE">
+		<Prop bits="0x1" data="ConnectedDirectionData" dataType="Boolean" key="CONNECTED_SOUTH">
+			<Val val="0">false</Val>
+			<Val val="1">true</Val>
+		</Prop>
+		<Prop bits="0x2" data="ConnectedDirectionData" dataType="Boolean" key="CONNECTED_WEST">
+			<Val val="0">false</Val>
+			<Val val="2">true</Val>
+		</Prop>
+		<Prop bits="0x4" data="ConnectedDirectionData" dataType="Boolean" key="CONNECTED_NORTH">
+			<Val val="0">false</Val>
+			<Val val="4">true</Val>
+		</Prop>
+		<Prop bits="0x8" data="ConnectedDirectionData" dataType="Boolean" key="CONNECTED_EAST">
+			<Val val="0">false</Val>
+			<Val val="8">true</Val>
+		</Prop>
+	</Block>
+	<Block type="FENCE_GATE">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.SOUTH</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.EAST</Val>
+		</Prop>
+		<Prop bits="0x4" data="OpenData" dataType="Boolean" key="OPEN">
+			<Val val="0">false</Val>
+			<Val val="4">true</Val>
+		</Prop>
+	</Block>
+	<Block type="SPRUCE_FENCE_GATE">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.SOUTH</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.EAST</Val>
+		</Prop>
+		<Prop bits="0x4" data="OpenData" dataType="Boolean" key="OPEN">
+			<Val val="0">false</Val>
+			<Val val="4">true</Val>
+		</Prop>
+	</Block>
+	<Block type="BIRCH_FENCE_GATE">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.SOUTH</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.EAST</Val>
+		</Prop>
+		<Prop bits="0x4" data="OpenData" dataType="Boolean" key="OPEN">
+			<Val val="0">false</Val>
+			<Val val="4">true</Val>
+		</Prop>
+	</Block>
+	<Block type="JUNGLE_FENCE_GATE">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.SOUTH</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.EAST</Val>
+		</Prop>
+		<Prop bits="0x4" data="OpenData" dataType="Boolean" key="OPEN">
+			<Val val="0">false</Val>
+			<Val val="4">true</Val>
+		</Prop>
+	</Block>
+	<Block type="DARK_OAK_FENCE_GATE">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.SOUTH</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.EAST</Val>
+		</Prop>
+		<Prop bits="0x4" data="OpenData" dataType="Boolean" key="OPEN">
+			<Val val="0">false</Val>
+			<Val val="4">true</Val>
+		</Prop>
+	</Block>
+	<Block type="ACACIA_FENCE_GATE">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.SOUTH</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.EAST</Val>
+		</Prop>
+		<Prop bits="0x4" data="OpenData" dataType="Boolean" key="OPEN">
+			<Val val="0">false</Val>
+			<Val val="4">true</Val>
+		</Prop>
+	</Block>
+	<Block type="NETHER_WART">
+		<Prop bits="0xF" data="GrowthData" dataType="Integer" key="GROWTH_STAGE">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+		</Prop>
+	</Block>
+	<!-- Find data on brewing stand -->
+	<Block type="CAULDRON">
+		<Prop bits="0xF" data="FluidLevelData" dataType="Integer" key="FLUID_LEVEL">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+		</Prop>
+	</Block>
+	<Block type="END_PORTAL_FRAME">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.SOUTH</Val>
+			<Val val="1">Direction.WEST</Val>
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.EAST</Val>
+		</Prop>
+		<Prop bits="0x4" data="FilledData" dataType="Boolean" key="FILLED">
+			<Val val="0">false</Val>
+			<Val val="4">true</Val>
+		</Prop>
+	</Block>
+	<Block type="COCOA">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.NORTH</Val>
+			<Val val="1">Direction.EAST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.WEST</Val>
+		</Prop>
+		<Prop bits="0xC" data="GrowthData" dataType="Integer" key="GROWTH_STAGE">
+			<Val val="0">0</Val>
+			<Val val="4">1</Val>
+			<Val val="8">2</Val>
+		</Prop>
+	</Block>
+	<Block type="TRIPWIRE_HOOK">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.NORTH</Val>
+			<Val val="1">Direction.EAST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.WEST</Val>
+		</Prop>
+		<Prop bits="0x4" data="DisarmedData" dataType="Boolean" key="DISARMED">
+			<Val val="0">true</Val>
+			<Val val="4">false</Val>
+		</Prop>
+		<Prop bits="0x8" data="PoweredData" dataType="Boolean" key="POWERED">
+			<Val val="0">false</Val>
+			<Val val="8">true</Val>
+		</Prop>
+	</Block>
+	<Block type="TRIPWIRE">
+		<Prop bits="0x1" data="PoweredData" dataType="Boolean" key="POWERED">
+			<Val val="0">false</Val>
+			<Val val="1">true</Val>
+		</Prop>
+		<Prop bits="0x4" data="AttachedData" dataType="Boolean" key="ATTACHED">
+			<Val val="0">false</Val>
+			<Val val="4">true</Val>
+		</Prop>
+		<Prop bits="0x8" data="DisarmedData" dataType="Boolean" key="DISARMED">
+			<Val val="0">false</Val>
+			<Val val="8">true</Val>
+		</Prop>
+	</Block>
+	<Block type="COBBLESTONE_WALL">
+		<Prop bits="0xF" data="WallData" dataType="WallType" key="WALL_TYPE">
+			<Val val="0">WallTypes.NORMAL</Val>
+			<Val val="1">WallTypes.MOSSY</Val>
+		</Prop>
+	</Block>
+	<!-- TODO: From version 1.7, the flower pot contents are entity data. -->
+	<Block type="SKULL">
+		<Prop bits="0xF" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="2">Direction.NORTH</Val>
+			<Val val="3">Direction.SOUTH</Val>
+			<Val val="4">Direction.EAST</Val>
+			<Val val="5">Direction.WEST</Val>
+		</Prop>
+		<!-- TODO: The rotation and skull type is dependent on entity data. -->
+	</Block>
+	<Block type="QUARTZ_BLOCK">
+		<Prop bits="0x3" data="QuartzData" dataType="QuartzType" key="QUARTZ_TYPE">
+			<Val val="0">QuartzTypes.DEFAULT</Val>
+			<Val val="1">QuartzTypes.CHISELED</Val>
+			<Val val="2">QuartzTypes.LINES_Y</Val>
+			<Val val="3">QuartzTypes.LINES_Z</Val>
+			<Val val="4">QuartzTypes.LINES_X</Val>
+		</Prop>
+	</Block>
+	<Block type="ANVIL">
+		<Prop bits="0x3" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.NORTH</Val>
+			<Val val="1">Direction.EAST</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.WEST</Val>
+		</Prop>
+		<!-- TODO: Get damage/entity data for anvil. -->
+	</Block>
+	<!-- VERSION: apperently no such block Block type="OBSERVER">
+		<Prop bits="0xF" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.DOWN</Val>
+			<Val val="1">Direction.UP</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.NORTH</Val>
+			<Val val="4">Direction.EAST</Val>
+			<Val val="5">Direction.WEST</Val>
+		</Prop>
+	</Block-->
+	<!-- TODO: STRUCTURE block data -->
+	<Block type="CHORUS_FLOWER">
+		<Prop bits="0xF" data="GrowthData" dataType="Integer" key="GROWTH_STAGE">
+			<Val val="0">0</Val>
+			<Val val="1">1</Val>
+			<Val val="2">2</Val>
+			<Val val="3">3</Val>
+			<Val val="4">4</Val>
+			<Val val="5">5</Val>
+		</Prop>
+	</Block>
+	<Block type="END_ROD">
+		<Prop bits="0xF" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.DOWN</Val>
+			<Val val="1">Direction.UP</Val>
+			<Val val="2">Direction.SOUTH</Val>
+			<Val val="3">Direction.NORTH</Val>
+			<Val val="4">Direction.EAST</Val>
+			<Val val="5">Direction.WEST</Val>
+		</Prop>
+	</Block>
+	<!-- VERSION: Block type="GLAZED_TERRACOTTA">
+		<Prop bits="0xF" data="DirectionalData" dataType="Direction" key="DIRECTION">
+			<Val val="0">Direction.SOUTH</Val>
+			<Val val="1">Direction.NORTH</Val>
+			<Val val="2">Direction.EAST</Val>
+			<Val val="3">Direction.WEST</Val>
+		</Prop>
+	</Block-->
 </root>

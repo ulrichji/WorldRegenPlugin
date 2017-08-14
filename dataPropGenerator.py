@@ -4,6 +4,23 @@ import xml.etree.ElementTree
 newline = "\n"
 tab = "\t"
 
+def getImports():
+	importLines = []
+	importLines.append("import org.spongepowered.api.block.BlockState;")
+	importLines.append("import org.spongepowered.api.block.BlockType;")
+	importLines.append("import org.spongepowered.api.block.BlockTypes;")
+	importLines.append("import org.spongepowered.api.data.key.Keys;")
+	importLines.append("import org.spongepowered.api.data.type.*;")
+	importLines.append("import org.spongepowered.api.event.cause.Cause;")
+	importLines.append("import org.spongepowered.api.util.Axis;")
+	importLines.append("import org.spongepowered.api.util.Direction;")
+	importLines.append("import org.spongepowered.api.world.Location;")
+	importLines.append("import org.spongepowered.api.world.World;")
+	importLines.append("")
+	importLines.append("")
+
+	return '\n'.join(importLines)
+
 def getProperties(propTag):
 	bits = 0
 	data = ""
@@ -56,7 +73,6 @@ def getPropertiesFromBlock(block):
 	return propertiesList
 
 def generateSetPropertiesCode(properties):
-	print(properties)
 	returnCode = []
 	for property in properties:
 		propertyClassName = property['data']
@@ -66,9 +82,7 @@ def generateSetPropertiesCode(properties):
 		dataTypeClassName = property['dataType']
 		bits = property['bits']
 		
-		returnCode.extend(["Optional<Immutable",propertyClassName,"> ",propertyNameImmutable," = "])
-		returnCode.extend(["state.get(Immutable"+propertyClassName,".class);",newline,tab*3])
-		returnCode.extend(["if (",propertyNameImmutable,".isPresent())",newline,tab*3,"{",newline,tab*4])
+		returnCode.extend(["{",newline,tab*4])
 		returnCode.extend([dataTypeClassName," newType = null;",newline,tab*4])
 		
 		first = True
@@ -80,11 +94,9 @@ def generateSetPropertiesCode(properties):
 			first = False
 			returnCode.extend(["newType = ",value[1],";",newline,tab*4])
 		
-		returnCode.extend([propertyClassName," ",dataVarName," = ",propertyNameImmutable,".get().asMutable();",newline,tab*4])
-		returnCode.extend([dataVarName,".set(Keys.",keyName,", newType);",newline,tab*4])
-		returnCode.extend(["state = state.with(",dataVarName,".asImmutable()).get();",newline,tab*4])
-		returnCode.extend(["loc.setBlock(state, cause);",newline,tab*3])
-		returnCode.extend(["}",newline,newline,tab*2])
+		returnCode.extend(["state = state.with(Keys.", keyName,", newType).orElse(state);",newline,tab*3])
+		returnCode.extend(["}",newline,tab*3])
+	returnCode.extend([newline,tab*2])
 	
 	return ''.join(returnCode)
 
@@ -96,7 +108,7 @@ def parseBlock(block):
 		returnBlock.extend(["if (blockType == BlockTypes.",blockType,")",newline,tab*2,"{",newline,tab*3])
 		
 		returnBlock.append(generateSetPropertiesCode(properties))
-		returnBlock.extend(["}",newline,tab*2]);
+		returnBlock.extend(["}",newline,tab*2])
 		
 	else:
 		raise Exception("A block must support a \"type\" attribute. Eg: type=\"STONE\"")
@@ -108,6 +120,7 @@ def main():
 	
 	classCode = []
 	classCode.extend(["package as.minecraft.util;",newline,newline])
+	classCode.extend([getImports()])
 	classCode.extend(["public class BlockDataUtils",newline,"{",newline,tab])
 	classCode.extend(["public static void setBlockData(Location<World> loc, Cause cause, BlockState state, BlockType blockType, int blockData)",newline,tab])
 	classCode.extend(["{",newline,tab*2])
@@ -117,7 +130,8 @@ def main():
 			classCode.append(parseBlock(child))
 		else:
 			raise Exception("The tag "+child.tag + " is not valid here.")
-	
+			
+	classCode.extend(["loc.setBlock(state, cause);",newline,tab*2])
 	classCode.extend([newline,tab,"}",newline,"}"])
 	
 	print(''.join(classCode))
