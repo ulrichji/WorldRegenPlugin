@@ -1,12 +1,13 @@
 package as.minecraft.world;
 
+import org.slf4j.Logger;
 import org.spongepowered.api.block.BlockState;
 import org.spongepowered.api.block.BlockType;
-import org.spongepowered.api.block.BlockTypes;
 import org.spongepowered.api.event.cause.Cause;
 import org.spongepowered.api.world.Location;
 import org.spongepowered.api.world.World;
 
+import as.minecraft.util.BlockDataUtils;
 import as.minecraft.util.BlockTypeEnumerate;
 
 public class RegenBlock
@@ -21,6 +22,7 @@ public class RegenBlock
 	{
 		this.blockType = blockType;
 		this.blockId = blockId;
+		this.blockData = blockData;
 		this.blockLight = blockLight;
 		this.skyLight = skyLight;
 	}
@@ -35,9 +37,14 @@ public class RegenBlock
 		this.skyLight = 0;
 	}
 
-	public void resetBlock(Location<World> loc, Cause cause)
-	{
+	public void resetBlock(Location<World> loc, Cause cause, Logger logger)
+	{	
 		loc.setBlockType(getBlockType(), cause);
+		BlockState state = loc.getBlock();
+		
+		BlockType type = getBlockType();
+		
+		BlockDataUtils.setBlockData(loc, cause, state, type, blockData);
 	}
 	
 	public BlockType getBlockType()

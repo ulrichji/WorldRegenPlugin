@@ -35,6 +35,10 @@ public class RegenWorldReader
 	{
 		DataInputStream stream = RegionFileCache.getChunkDataInputStream(this.file, x, z);
 		
+		//Stream is null if the chunk doesn't exist
+		if(stream == null)
+			return null;
+		
 		@SuppressWarnings("resource")
 		NBTInputStream nbt = new NBTInputStream(stream, false);
 		

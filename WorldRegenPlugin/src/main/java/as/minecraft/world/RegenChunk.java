@@ -3,7 +3,6 @@ package as.minecraft.world;
 import java.util.ArrayList;
 
 import org.slf4j.Logger;
-import org.spongepowered.api.block.BlockTypes;
 import org.spongepowered.api.event.cause.Cause;
 import org.spongepowered.api.plugin.PluginContainer;
 import org.spongepowered.api.world.Chunk;
@@ -32,7 +31,7 @@ public class RegenChunk
 	private long inhabitedTime = 0;
 	private byte[] biomeData = null;
 	private int[] heightMap = null;
-	//Regen block as x, y, z [16][256][16]
+	//Regen chunk as x, y, z [16][256][16]
 	private RegenBlock[][][] chunkBlocks = null;
 	
 	private Logger logger = null;
@@ -49,7 +48,7 @@ public class RegenChunk
 	}
 
 	public void reloadChunk(Chunk c, PluginContainer rootCause)
-	{
+	{		
 		logger.info("Reloading chunk at " + chunkX + ", 0, "+chunkZ);
 		World world = c.getWorld();
 		Cause cause = Cause.source(rootCause).build();
@@ -65,7 +64,7 @@ public class RegenChunk
 					int yLoc = y;
 					int zLoc = (chunkZ * 16) + z;
 					Location<World> loc = world.getLocation(xLoc, yLoc, zLoc);
-					block.resetBlock(loc, cause);
+					block.resetBlock(loc, cause, logger);
 				}
 			}
 		}
@@ -324,8 +323,8 @@ public class RegenChunk
 	
 	private void debug(String message)
 	{
-		if(logger != null)
-			logger.info(message);
+		//if(logger != null)
+		//	logger.info(message);
 	}
 	
 	public int getDataVersion() {
