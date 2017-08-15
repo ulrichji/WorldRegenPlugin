@@ -2,7 +2,7 @@ plugins {
     id 'org.spongepowered.plugin' version '0.8.1'
 }
 
-group = 'as.minecraft.plugin' // TODO
+group = 'as.minecraft.plugin'
 version = '0.0.1'
 description = 'World reset/regeneration plugin.'
 
@@ -10,9 +10,12 @@ dependencies {
     compile 'org.spongepowered:spongeapi:6.0.0'
 }
 
+apply plugin: 'eclipse'
+
 repositories {
     mavenCentral()
 }
 dependencies {
     compile 'com.flowpowered:flow-nbt:1.0.1-SNAPSHOT'
+    compile 'com.fathzer:javaluator:3.0.1'
 }

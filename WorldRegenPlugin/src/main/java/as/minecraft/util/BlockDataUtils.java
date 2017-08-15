@@ -4,7 +4,48 @@ import org.spongepowered.api.block.BlockState;
 import org.spongepowered.api.block.BlockType;
 import org.spongepowered.api.block.BlockTypes;
 import org.spongepowered.api.data.key.Keys;
-import org.spongepowered.api.data.type.*;
+import org.spongepowered.api.data.type.BigMushroomType;
+import org.spongepowered.api.data.type.BigMushroomTypes;
+import org.spongepowered.api.data.type.BrickType;
+import org.spongepowered.api.data.type.BrickTypes;
+import org.spongepowered.api.data.type.ComparatorType;
+import org.spongepowered.api.data.type.ComparatorTypes;
+import org.spongepowered.api.data.type.DirtType;
+import org.spongepowered.api.data.type.DirtTypes;
+import org.spongepowered.api.data.type.DisguisedBlockType;
+import org.spongepowered.api.data.type.DisguisedBlockTypes;
+import org.spongepowered.api.data.type.DoublePlantType;
+import org.spongepowered.api.data.type.DoublePlantTypes;
+import org.spongepowered.api.data.type.DyeColor;
+import org.spongepowered.api.data.type.DyeColors;
+import org.spongepowered.api.data.type.LogAxes;
+import org.spongepowered.api.data.type.LogAxis;
+import org.spongepowered.api.data.type.PistonType;
+import org.spongepowered.api.data.type.PistonTypes;
+import org.spongepowered.api.data.type.PlantType;
+import org.spongepowered.api.data.type.PlantTypes;
+import org.spongepowered.api.data.type.PortionType;
+import org.spongepowered.api.data.type.PortionTypes;
+import org.spongepowered.api.data.type.PrismarineType;
+import org.spongepowered.api.data.type.PrismarineTypes;
+import org.spongepowered.api.data.type.QuartzType;
+import org.spongepowered.api.data.type.QuartzTypes;
+import org.spongepowered.api.data.type.RailDirection;
+import org.spongepowered.api.data.type.RailDirections;
+import org.spongepowered.api.data.type.SandType;
+import org.spongepowered.api.data.type.SandTypes;
+import org.spongepowered.api.data.type.SandstoneType;
+import org.spongepowered.api.data.type.SandstoneTypes;
+import org.spongepowered.api.data.type.ShrubType;
+import org.spongepowered.api.data.type.ShrubTypes;
+import org.spongepowered.api.data.type.SlabType;
+import org.spongepowered.api.data.type.SlabTypes;
+import org.spongepowered.api.data.type.StoneType;
+import org.spongepowered.api.data.type.StoneTypes;
+import org.spongepowered.api.data.type.TreeType;
+import org.spongepowered.api.data.type.TreeTypes;
+import org.spongepowered.api.data.type.WallType;
+import org.spongepowered.api.data.type.WallTypes;
 import org.spongepowered.api.event.cause.Cause;
 import org.spongepowered.api.util.Axis;
 import org.spongepowered.api.util.Direction;
@@ -2955,7 +2996,6 @@ public class BlockDataUtils
 					newType = Direction.WEST;
 				state = state.with(Keys.DIRECTION, newType).orElse(state);
 			}
-			
 		}
 		if (blockType == BlockTypes.CHORUS_FLOWER)
 		{
