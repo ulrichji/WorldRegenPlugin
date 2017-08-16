@@ -20,8 +20,7 @@ public class ExpressionValue
 			this.type = ExpressionType.BOOLEAN;
 		else
 		{
-			debug(Boolean.toString(value.startsWith("\"")));
-			if(value.startsWith("\""))
+			if(value.startsWith("'") && value.endsWith("'"))
 				tempValue = value.substring(1,value.length()-1);
 			this.type = ExpressionType.STRING;
 		}

@@ -84,7 +84,6 @@ public class RegenCommandExecutor implements CommandExecutor
 	{
 		BlockEvaluator evaluator = new BlockEvaluator();
 		evaluator.setExpression("true");
-		
 		Vector3i chunkPos = c.getPosition();
 		try {
 			RegenChunk regenChunk = worldReader.getRegenChunk(chunkPos.getX(), chunkPos.getZ());
@@ -98,7 +97,7 @@ public class RegenCommandExecutor implements CommandExecutor
 			{
 				regenChunk.setBlockEvaluator(evaluator);
 				regenChunk.reloadChunk(c, this.plugin.getPluginContainer());	
-				src.sendMessage(Text.of("Chunk load: "+regenChunk.getChunkX() + "," + regenChunk.getChunkZ()));
+				src.sendMessage(Text.of("Chunk at x: "+regenChunk.getChunkX() + ", y: " + regenChunk.getChunkZ() + " regenerated"));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
