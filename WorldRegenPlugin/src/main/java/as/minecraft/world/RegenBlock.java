@@ -12,24 +12,21 @@ import as.minecraft.util.BlockTypeEnumerate;
 
 public class RegenBlock
 {
-	private RegenBlockType blockType;
 	private int blockId;
 	private int blockData;
 	private int blockLight;
 	private int skyLight;
 	
-	public RegenBlock(RegenBlockType blockType, int blockId, int blockData, int blockLight, int skyLight)
+	public RegenBlock(int blockId, int blockData, int blockLight, int skyLight)
 	{
-		this.blockType = blockType;
 		this.blockId = blockId;
 		this.blockData = blockData;
 		this.blockLight = blockLight;
 		this.skyLight = skyLight;
 	}
 
-	public RegenBlock(RegenBlockType block)
+	public RegenBlock()
 	{
-		this.blockType = block;
 		//Should be air
 		this.blockId = 0;
 		this.blockData = 0;
@@ -52,10 +49,6 @@ public class RegenBlock
 		return BlockTypeEnumerate.getBlockTypeFromId(blockId);
 	}
 	
-	public RegenBlockType getRegenBlockType() {
-		return blockType;
-	}
-
 	public int getBlockId() {
 		return blockId;
 	}

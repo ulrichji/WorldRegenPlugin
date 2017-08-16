@@ -11,11 +11,35 @@ dependencies {
 }
 
 apply plugin: 'eclipse'
+apply plugin: 'application'
+
+mainClassName = "as.minecraft.plugin.WorldRegenPlugin"
 
 repositories {
     mavenCentral()
 }
 dependencies {
-    compile 'com.flowpowered:flow-nbt:1.0.1-SNAPSHOT'
     compile 'com.fathzer:javaluator:3.0.1'
+}
+
+jar {
+
+    archiveName = "world_regen_plugin.jar"
+
+    from {
+
+        configurations.runtime.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+
+        configurations.compile.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+
+    manifest {
+        attributes 'Main-Class': 'as.minecraft.plugin.WorldRegenPlugin'
+    }
+
+    exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
 }

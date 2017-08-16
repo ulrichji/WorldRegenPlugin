@@ -20,6 +20,7 @@ import org.spongepowered.api.world.World;
 
 import com.flowpowered.math.vector.Vector3i;
 
+import as.minecraft.evaluator.BlockEvaluator;
 import as.minecraft.world.RegenChunk;
 import as.minecraft.world.RegenWorldReader;
 
@@ -81,6 +82,9 @@ public class RegenCommandExecutor implements CommandExecutor
 	
 	public void reloadChunk(Chunk c, CommandSource src)
 	{
+		BlockEvaluator evaluator = new BlockEvaluator();
+		evaluator.setExpression("true");
+		
 		Vector3i chunkPos = c.getPosition();
 		try {
 			RegenChunk regenChunk = worldReader.getRegenChunk(chunkPos.getX(), chunkPos.getZ());
@@ -92,6 +96,7 @@ public class RegenCommandExecutor implements CommandExecutor
 			}
 			else
 			{
+				regenChunk.setBlockEvaluator(evaluator);
 				regenChunk.reloadChunk(c, this.plugin.getPluginContainer());	
 				src.sendMessage(Text.of("Chunk load: "+regenChunk.getChunkX() + "," + regenChunk.getChunkZ()));
 			}

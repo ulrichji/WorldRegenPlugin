@@ -19,6 +19,8 @@ import com.flowpowered.nbt.LongTag;
 import com.flowpowered.nbt.Tag;
 import com.flowpowered.nbt.TagType;
 
+import as.minecraft.evaluator.BlockEvaluator;
+
 public class RegenChunk
 {
 	private int dataVersion = 0;
@@ -35,6 +37,7 @@ public class RegenChunk
 	private RegenBlock[][][] chunkBlocks = null;
 	
 	private Logger logger = null;
+	private BlockEvaluator evaluator = null;
 	
 	public RegenChunk(Tag<?> root)
 	{
@@ -48,7 +51,7 @@ public class RegenChunk
 	}
 
 	public void reloadChunk(Chunk c, PluginContainer rootCause)
-	{		
+	{
 		logger.info("Reloading chunk at " + chunkX + ", 0, "+chunkZ);
 		World world = c.getWorld();
 		Cause cause = Cause.source(rootCause).build();
@@ -64,12 +67,25 @@ public class RegenChunk
 					int yLoc = y;
 					int zLoc = (chunkZ * 16) + z;
 					Location<World> loc = world.getLocation(xLoc, yLoc, zLoc);
-					block.resetBlock(loc, cause, logger);
+					
+					//Run the expression to check if this block is to be regenerated.
+					if(regenBlock(xLoc, yLoc, zLoc, chunkX, 0, chunkZ, loc, block))
+						block.resetBlock(loc, cause, logger);
 				}
 			}
 		}
 	}
 	
+	private boolean regenBlock(int xLoc, int yLoc, int zLoc, int chunkXPos, int chunkYPos, int chunkZPos,
+			Location<World> loc, RegenBlock block)
+	{
+		//Regenerate if the evaluator is not set.
+		if(evaluator == null)
+			return true;
+		else
+			return evaluator.evaluateBlock(xLoc, yLoc, zLoc, chunkXPos, chunkYPos, chunkZPos, loc, block);
+	}
+
 	private void parseTree(Tag<?> root)
 	{
 		if(root.getType() == TagType.TAG_COMPOUND)
@@ -192,7 +208,7 @@ public class RegenChunk
 				for(int y = ySection * 16; y<(ySection + 1)*16; y++)
 				{
 					for(int z = 0; z<16; z++)
-						chunkBlocks[x][y][z] = new RegenBlock(RegenBlockType.BLOCK);
+						chunkBlocks[x][y][z] = new RegenBlock();
 				}
 			}
 		}
@@ -242,8 +258,7 @@ public class RegenChunk
 			int zPos = (i / 16) % 16;
 			int yPos = (yIndex * 16) + ((i / 16) / 16);
 			
-			chunkBlocks[xPos][yPos][zPos] = new RegenBlock(RegenBlockType.BLOCK,
-					blockId, blockData, blockLight, skyLight);
+			chunkBlocks[xPos][yPos][zPos] = new RegenBlock(blockId, blockData, blockLight, skyLight);
 		}
 		return yIndex;
 	}
@@ -325,6 +340,11 @@ public class RegenChunk
 	{
 		//if(logger != null)
 		//	logger.info(message);
+	}
+	
+	public void setBlockEvaluator(BlockEvaluator evaluator)
+	{
+		this.evaluator = evaluator;
 	}
 	
 	public int getDataVersion() {

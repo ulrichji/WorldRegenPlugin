@@ -2,6 +2,9 @@ package as.minecraft.evaluator;
 
 import java.util.Iterator;
 
+import org.spongepowered.api.world.Location;
+import org.spongepowered.api.world.World;
+
 import com.fathzer.soft.javaluator.AbstractEvaluator;
 import com.fathzer.soft.javaluator.BracketPair;
 import com.fathzer.soft.javaluator.Operator;
@@ -10,7 +13,6 @@ import com.fathzer.soft.javaluator.StaticVariableSet;
 
 import as.minecraft.util.BlockTypeEnumerate;
 import as.minecraft.world.RegenBlock;
-import as.minecraft.world.RegenBlockType;
 
 public class BlockEvaluator extends AbstractEvaluator<ExpressionValue>
 {
@@ -83,7 +85,7 @@ public class BlockEvaluator extends AbstractEvaluator<ExpressionValue>
 		PARAMETERS.addExpressionBracket(BracketPair.PARENTHESES);
 	}
 	
-	protected BlockEvaluator()
+	public BlockEvaluator()
 	{
 		super(PARAMETERS);
 	}
@@ -158,25 +160,45 @@ public class BlockEvaluator extends AbstractEvaluator<ExpressionValue>
 		this.expression = expression;
 	}
 	
-	public boolean evaluateBlock(RegenBlock block)
+	/*public static void main(String[] argv)
+	{
+		BlockEvaluator evaluator = new BlockEvaluator();
+		String expression = "block_id = minecraft:grass";
+		evaluator.setExpression(expression);
+		RegenBlock block = new RegenBlock(0, 0, 0, 0);
+		System.out.println("Result is: "+evaluator.evaluateBlock(block));
+	}*/
+
+	public boolean evaluateBlock(int xLoc, int yLoc, int zLoc, int chunkXPos, int chunkYPos, int chunkZPos,
+			Location<World> loc, RegenBlock block)
 	{
 		final StaticVariableSet<ExpressionValue> variables = new StaticVariableSet<ExpressionValue>();
-		variables.set("block_id", new ExpressionValue(BlockTypeEnumerate.getBlockTextIdFromId(block.getBlockId()), ExpressionType.STRING));
-		variables.set("block_data", new ExpressionValue(Long.toString(block.getBlockData()), ExpressionType.LONG));
-		variables.set("block_id_num", new ExpressionValue(Long.toString(block.getBlockId()), ExpressionType.LONG));
+		
+		String blockIdString = BlockTypeEnumerate.getBlockTextIdFromId(block.getBlockId());
+		String blockIdNum = Integer.toString(block.getBlockId());
+		String curBlockId = loc.getBlockType().toString();
+		String blockData = Integer.toString(block.getBlockData());
+		String xPos = Integer.toString(xLoc);
+		String yPos = Integer.toString(yLoc);
+		String zPos = Integer.toString(zLoc);
+		String chunkX = Integer.toString(chunkXPos);
+		String chunkY = Integer.toString(chunkYPos);
+		String chunkZ = Integer.toString(chunkZPos);
+		
+		variables.set("block_id", new ExpressionValue(blockIdString,ExpressionType.STRING));
+		variables.set("block_id_num", new ExpressionValue(blockIdNum, ExpressionType.LONG));
+		variables.set("cur_block_id", new ExpressionValue(curBlockId, ExpressionType.STRING));
+		variables.set("blockData", new ExpressionValue(blockData, ExpressionType.LONG));
+		variables.set("block_x", new ExpressionValue(xPos, ExpressionType.LONG));
+		variables.set("block_y", new ExpressionValue(yPos, ExpressionType.LONG));
+		variables.set("block_z", new ExpressionValue(zPos, ExpressionType.LONG));
+		variables.set("chunk_x", new ExpressionValue(chunkX, ExpressionType.LONG));
+		variables.set("chunk_y", new ExpressionValue(chunkY, ExpressionType.LONG));
+		variables.set("chunk_y", new ExpressionValue(chunkZ, ExpressionType.LONG));
 		
 		ExpressionValue result = this.evaluate(expression, variables);
 		result = ExpressionValue.castBoolean(result);
 		
 		return Boolean.parseBoolean(result.getValue());
-	}
-	
-	public static void main(String[] argv)
-	{
-		BlockEvaluator evaluator = new BlockEvaluator();
-		String expression = "block_id == \"minecraft\" + \":\" + \"grass\" && (boolean)block_data == (boolean)0";
-		evaluator.setExpression(expression);
-		RegenBlock block = new RegenBlock(RegenBlockType.BLOCK, 2, 0, 0, 0);
-		System.out.println("Result is: "+evaluator.evaluateBlock(block));
 	}
 }
