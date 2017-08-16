@@ -2,6 +2,7 @@ package as.minecraft.plugin;
 
 import org.slf4j.Logger;
 import org.spongepowered.api.Sponge;
+import org.spongepowered.api.command.args.GenericArguments;
 import org.spongepowered.api.command.spec.CommandSpec;
 import org.spongepowered.api.event.Listener;
 import org.spongepowered.api.event.game.state.GameStartedServerEvent;
@@ -54,6 +55,8 @@ public class WorldRegenPlugin
 				.description(Text.of("Regenerate current chunk"))
 				.permission("worldregenplugin.command.regenerate")
 				.executor(new RegenCommandExecutor(this, logger))
+				.arguments(GenericArguments.flags().valueFlag(GenericArguments.string(Text.of("expression")),
+						"e").buildWith(GenericArguments.none()))
 				.build();
 		
 		Sponge.getCommandManager().register(this, commandSpec, "regen", "regenerate");

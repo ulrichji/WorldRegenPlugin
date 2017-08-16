@@ -56,7 +56,13 @@ public class RegenCommandExecutor implements CommandExecutor
 			Optional<Chunk> c = world.getChunk(chunkpos);
 			
 			Chunk chunk = c.get();
-			reloadChunk(chunk, src);
+			
+			String expression = "true";
+			Optional<String> expr = args.<String>getOne("expression");
+			if(expr.isPresent())
+				expression = expr.get();
+			
+			reloadChunk(chunk, src, expression);
 		}
 		else if(src instanceof ConsoleSource)
 		{
@@ -80,10 +86,10 @@ public class RegenCommandExecutor implements CommandExecutor
 		return CommandResult.success();
 	}
 	
-	public void reloadChunk(Chunk c, CommandSource src)
+	public void reloadChunk(Chunk c, CommandSource src, String expression)
 	{
 		BlockEvaluator evaluator = new BlockEvaluator();
-		evaluator.setExpression("true");
+		evaluator.setExpression(expression);
 		Vector3i chunkPos = c.getPosition();
 		try {
 			RegenChunk regenChunk = worldReader.getRegenChunk(chunkPos.getX(), chunkPos.getZ());
