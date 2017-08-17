@@ -159,15 +159,6 @@ public class BlockEvaluator extends AbstractEvaluator<ExpressionValue>
 	{
 		this.expression = expression;
 	}
-	
-	/*public static void main(String[] argv)
-	{
-		BlockEvaluator evaluator = new BlockEvaluator();
-		String expression = "block_id = minecraft:grass";
-		evaluator.setExpression(expression);
-		RegenBlock block = new RegenBlock(0, 0, 0, 0);
-		System.out.println("Result is: "+evaluator.evaluateBlock(block));
-	}*/
 
 	public boolean evaluateBlock(int xLoc, int yLoc, int zLoc, int chunkXPos, int chunkYPos, int chunkZPos,
 			Location<World> loc, RegenBlock block)

@@ -107,6 +107,7 @@ public class RegenCommandExecutor implements CommandExecutor
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+			
 		}
 	}
 }

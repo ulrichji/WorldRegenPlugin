@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'as.minecraft.plugin'
-version = '0.0.1'
+version = '0.0.3'
 description = 'World reset/regeneration plugin.'
 
 dependencies {

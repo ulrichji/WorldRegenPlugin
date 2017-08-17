@@ -12,7 +12,7 @@ import org.spongepowered.api.text.Text;
 
 import com.google.inject.Inject;
 
-@Plugin(id="worldregenplugin", name="World Regen Plugin", version = "0.0.1")
+@Plugin(id="worldregenplugin", name="World Regen Plugin", version = "0.0.3")
 public class WorldRegenPlugin
 {
 	@Inject
