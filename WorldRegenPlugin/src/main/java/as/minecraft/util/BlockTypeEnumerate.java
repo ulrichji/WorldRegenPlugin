@@ -1,5 +1,4 @@
 package as.minecraft.util;
-
 import org.spongepowered.api.block.BlockType;
 import org.spongepowered.api.block.BlockTypes;
 
@@ -479,10 +478,50 @@ public class BlockTypeEnumerate
 			return BlockTypes.RED_SHULKER_BOX;
 		case 0xEA:
 			return BlockTypes.BLACK_SHULKER_BOX;
+		/*case 0xEB:
+			return BlockTypes.WHITE_GLAZED_TERRACOTTA;
+		case 0xEC:
+			return BlockTypes.ORANGE_GLAZED_TERRACOTTA;
+		case 0xED:
+			return BlockTypes.MAGENTA_GLAZED_TERRACOTTA;
+		case 0xEE:
+			return BlockTypes.LIGHT_BLUE_GLAZED_TERRACOTTA;
+		case 0xEF:
+			return BlockTypes.YELLOW_GLAZED_TERRACOTTA;
+		case 0xF0:
+			return BlockTypes.LIME_GLAZED_TERRACOTTA;
+		case 0xF1:
+			return BlockTypes.PINK_GLAZED_TERRACOTTA;
+		case 0xF2:
+			return BlockTypes.GRAY_GLAZED_TERRACOTTA;
+		case 0xF3:
+			return BlockTypes.SILVER_GLAZED_TERRACOTTA;
+		case 0xF4:
+			return BlockTypes.CYAN_GLAZED_TERRACOTTA;
+		case 0xF5:
+			return BlockTypes.PURPLE_GLAZED_TERRACOTTA;
+		case 0xF6:
+			return BlockTypes.BLUE_GLAZED_TERRACOTTA;
+		case 0xF7:
+			return BlockTypes.BROWN_GLAZED_TERRACOTTA;
+		case 0xF8:
+			return BlockTypes.GREEN_GLAZED_TERRACOTTA;
+		case 0xF9:
+			return BlockTypes.RED_GLAZED_TERRACOTTA;
+		case 0xFA:
+			return BlockTypes.BLACK_GLAZED_TERRACOTTA;
+		case 0xFB:
+			return BlockTypes.CONCRETE;
+		case 0xFC:
+			return BlockTypes.CONCRETE_POWDER;
+		case 0xFD:
+			return null;
+		case 0xFE:
+			return null;*/
 		case 0xFF:
 			return BlockTypes.STRUCTURE_BLOCK;
 		default: 
-			return BlockTypes.AIR;
+			return null;
 		}
 	}
 	public static String getBlockTextIdFromId(int id)
@@ -996,13 +1035,13 @@ public class BlockTypeEnumerate
 		case 0xFC:
 			return "minecraft:concrete_powder";
 		case 0xFD:
-			return "(unused)";
+			return null;
 		case 0xFE:
-			return "(unused)";
+			return null;
 		case 0xFF:
 			return "minecraft:structure_block";
 		default: 
-			return "unknown block";
+			return null;
 		}
 	}
 	public static String getBlockNameFromId(int id)
@@ -1028,11 +1067,11 @@ public class BlockTypeEnumerate
 		case 0x8:
 			return "Water";
 		case 0x9:
-			return "Stationary ";
+			return "Stationary Water";
 		case 0xA:
 			return "Lava";
 		case 0xB:
-			return "Stationary ";
+			return "Stationary Lava";
 		case 0xC:
 			return "Sand";
 		case 0xD:
@@ -1136,7 +1175,7 @@ public class BlockTypeEnumerate
 		case 0x3E:
 			return "Burning Furnace";
 		case 0x3F:
-			return "Standing ";
+			return "Standing Sign";
 		case 0x40:
 			return "Oak Door";
 		case 0x41:
@@ -1146,7 +1185,7 @@ public class BlockTypeEnumerate
 		case 0x43:
 			return "Cobblestone Stairs";
 		case 0x44:
-			return "Wall ";
+			return "Wall Sign";
 		case 0x45:
 			return "Lever";
 		case 0x46:
@@ -1158,15 +1197,15 @@ public class BlockTypeEnumerate
 		case 0x49:
 			return "Redstone Ore";
 		case 0x4A:
-			return "Glowing ";
+			return "Glowing Redstone Ore";
 		case 0x4B:
-			return "Redstone Torch";
+			return "Redstone Torch (inactive)";
 		case 0x4C:
-			return "Redstone Torch";
+			return "Redstone Torch (active)";
 		case 0x4D:
 			return "Stone Button";
 		case 0x4E:
-			return "Snow";
+			return "Snow (layer)";
 		case 0x4F:
 			return "Ice";
 		case 0x50:
@@ -1190,15 +1229,15 @@ public class BlockTypeEnumerate
 		case 0x59:
 			return "Glowstone";
 		case 0x5A:
-			return "Nether ";
+			return "Nether Portal";
 		case 0x5B:
 			return "Jack o'Lantern";
 		case 0x5C:
 			return "Cake";
 		case 0x5D:
-			return "Redstone Repeater";
+			return "Redstone Repeater (inactive)";
 		case 0x5E:
-			return "Redstone Repeater";
+			return "Redstone Repeater (active)";
 		case 0x5F:
 			return "Stained Glass";
 		case 0x60:
@@ -1208,9 +1247,9 @@ public class BlockTypeEnumerate
 		case 0x62:
 			return "Stone Bricks";
 		case 0x63:
-			return "Brown Mushroom";
+			return "Brown Mushroom (block)";
 		case 0x64:
-			return "Red Mushroom";
+			return "Red Mushroom (block)";
 		case 0x65:
 			return "Iron Bars";
 		case 0x66:
@@ -1256,9 +1295,9 @@ public class BlockTypeEnumerate
 		case 0x7A:
 			return "Dragon Egg";
 		case 0x7B:
-			return "Redstone Lamp";
+			return "Redstone Lamp (inactive)";
 		case 0x7C:
-			return "Redstone Lamp";
+			return "Redstone Lamp (active)";
 		case 0x7D:
 			return "Double Wooden Slab";
 		case 0x7E:
@@ -1304,13 +1343,13 @@ public class BlockTypeEnumerate
 		case 0x92:
 			return "Trapped Chest";
 		case 0x93:
-			return "Weighted Pressure Plate";
+			return "Weighted Pressure Plate (Light)";
 		case 0x94:
-			return "Weighted Pressure Plate";
+			return "Weighted Pressure Plate (Heavy)";
 		case 0x95:
 			return "Redstone Comparator";
 		case 0x96:
-			return "Redstone Comparator";
+			return "Redstone Comparator (deprecated)";
 		case 0x97:
 			return "Daylight Sensor";
 		case 0x98:
@@ -1332,9 +1371,9 @@ public class BlockTypeEnumerate
 		case 0xA0:
 			return "Stained Glass Pane";
 		case 0xA1:
-			return "Leaves";
+			return "Leaves (Acacia/Dark Oak)";
 		case 0xA2:
-			return "Wood";
+			return "Wood (Acacia/Dark Oak)";
 		case 0xA3:
 			return "Acacia Wood Stairs";
 		case 0xA4:
@@ -1362,9 +1401,9 @@ public class BlockTypeEnumerate
 		case 0xAF:
 			return "Large Flowers";
 		case 0xB0:
-			return "Standing ";
+			return "Standing Banner";
 		case 0xB1:
-			return "Wall ";
+			return "Wall Banner";
 		case 0xB2:
 			return "Inverted Daylight Sensor";
 		case 0xB3:
@@ -1516,13 +1555,533 @@ public class BlockTypeEnumerate
 		case 0xFC:
 			return "Concrete Powder";
 		case 0xFD:
-			return "Concrete Powder";
+			return "(unused)";
 		case 0xFE:
-			return "Concrete Powder";
+			return "(unused)";
 		case 0xFF:
 			return "Structure Block";
 		default: 
-			return "UNKNOWN BLOCK";
+			return null;
+		}
+	}
+	public static BlockType getBlockTypeFromBlockId(String blockId)
+	{
+		switch(blockId)
+		{
+		case "minecraft:air":
+			return BlockTypes.AIR;
+		case "minecraft:stone":
+			return BlockTypes.STONE;
+		case "minecraft:grass":
+			return BlockTypes.GRASS;
+		case "minecraft:dirt":
+			return BlockTypes.DIRT;
+		case "minecraft:cobblestone":
+			return BlockTypes.COBBLESTONE;
+		case "minecraft:planks":
+			return BlockTypes.PLANKS;
+		case "minecraft:sapling":
+			return BlockTypes.SAPLING;
+		case "minecraft:bedrock":
+			return BlockTypes.BEDROCK;
+		case "minecraft:flowing_water":
+			return BlockTypes.FLOWING_WATER;
+		case "minecraft:water":
+			return BlockTypes.WATER;
+		case "minecraft:flowing_lava":
+			return BlockTypes.FLOWING_LAVA;
+		case "minecraft:lava":
+			return BlockTypes.LAVA;
+		case "minecraft:sand":
+			return BlockTypes.SAND;
+		case "minecraft:gravel":
+			return BlockTypes.GRAVEL;
+		case "minecraft:gold_ore":
+			return BlockTypes.GOLD_ORE;
+		case "minecraft:iron_ore":
+			return BlockTypes.IRON_ORE;
+		case "minecraft:coal_ore":
+			return BlockTypes.COAL_ORE;
+		case "minecraft:log":
+			return BlockTypes.LOG;
+		case "minecraft:leaves":
+			return BlockTypes.LEAVES;
+		case "minecraft:sponge":
+			return BlockTypes.SPONGE;
+		case "minecraft:glass":
+			return BlockTypes.GLASS;
+		case "minecraft:lapis_ore":
+			return BlockTypes.LAPIS_ORE;
+		case "minecraft:lapis_block":
+			return BlockTypes.LAPIS_BLOCK;
+		case "minecraft:dispenser":
+			return BlockTypes.DISPENSER;
+		case "minecraft:sandstone":
+			return BlockTypes.SANDSTONE;
+		case "minecraft:noteblock":
+			return BlockTypes.NOTEBLOCK;
+		case "minecraft:bed":
+			return BlockTypes.BED;
+		case "minecraft:golden_rail":
+			return BlockTypes.GOLDEN_RAIL;
+		case "minecraft:detector_rail":
+			return BlockTypes.DETECTOR_RAIL;
+		case "minecraft:sticky_piston":
+			return BlockTypes.STICKY_PISTON;
+		case "minecraft:web":
+			return BlockTypes.WEB;
+		case "minecraft:tallgrass":
+			return BlockTypes.TALLGRASS;
+		case "minecraft:deadbush":
+			return BlockTypes.DEADBUSH;
+		case "minecraft:piston":
+			return BlockTypes.PISTON;
+		case "minecraft:piston_head":
+			return BlockTypes.PISTON_HEAD;
+		case "minecraft:wool":
+			return BlockTypes.WOOL;
+		case "minecraft:piston_extension":
+			return BlockTypes.PISTON_EXTENSION;
+		case "minecraft:yellow_flower":
+			return BlockTypes.YELLOW_FLOWER;
+		case "minecraft:red_flower":
+			return BlockTypes.RED_FLOWER;
+		case "minecraft:brown_mushroom":
+			return BlockTypes.BROWN_MUSHROOM;
+		case "minecraft:red_mushroom":
+			return BlockTypes.RED_MUSHROOM;
+		case "minecraft:gold_block":
+			return BlockTypes.GOLD_BLOCK;
+		case "minecraft:iron_block":
+			return BlockTypes.IRON_BLOCK;
+		case "minecraft:double_stone_slab":
+			return BlockTypes.DOUBLE_STONE_SLAB;
+		case "minecraft:stone_slab":
+			return BlockTypes.STONE_SLAB;
+		case "minecraft:brick_block":
+			return BlockTypes.BRICK_BLOCK;
+		case "minecraft:tnt":
+			return BlockTypes.TNT;
+		case "minecraft:bookshelf":
+			return BlockTypes.BOOKSHELF;
+		case "minecraft:mossy_cobblestone":
+			return BlockTypes.MOSSY_COBBLESTONE;
+		case "minecraft:obsidian":
+			return BlockTypes.OBSIDIAN;
+		case "minecraft:torch":
+			return BlockTypes.TORCH;
+		case "minecraft:fire":
+			return BlockTypes.FIRE;
+		case "minecraft:mob_spawner":
+			return BlockTypes.MOB_SPAWNER;
+		case "minecraft:oak_stairs":
+			return BlockTypes.OAK_STAIRS;
+		case "minecraft:chest":
+			return BlockTypes.CHEST;
+		case "minecraft:redstone_wire":
+			return BlockTypes.REDSTONE_WIRE;
+		case "minecraft:diamond_ore":
+			return BlockTypes.DIAMOND_ORE;
+		case "minecraft:diamond_block":
+			return BlockTypes.DIAMOND_BLOCK;
+		case "minecraft:crafting_table":
+			return BlockTypes.CRAFTING_TABLE;
+		case "minecraft:wheat":
+			return BlockTypes.WHEAT;
+		case "minecraft:farmland":
+			return BlockTypes.FARMLAND;
+		case "minecraft:furnace":
+			return BlockTypes.FURNACE;
+		case "minecraft:lit_furnace":
+			return BlockTypes.LIT_FURNACE;
+		case "minecraft:standing_sign":
+			return BlockTypes.STANDING_SIGN;
+		case "minecraft:wooden_door":
+			return BlockTypes.WOODEN_DOOR;
+		case "minecraft:ladder":
+			return BlockTypes.LADDER;
+		case "minecraft:rail":
+			return BlockTypes.RAIL;
+		case "minecraft:stone_stairs":
+			return BlockTypes.STONE_STAIRS;
+		case "minecraft:wall_sign":
+			return BlockTypes.WALL_SIGN;
+		case "minecraft:lever":
+			return BlockTypes.LEVER;
+		case "minecraft:stone_pressure_plate":
+			return BlockTypes.STONE_PRESSURE_PLATE;
+		case "minecraft:iron_door":
+			return BlockTypes.IRON_DOOR;
+		case "minecraft:wooden_pressure_plate":
+			return BlockTypes.WOODEN_PRESSURE_PLATE;
+		case "minecraft:redstone_ore":
+			return BlockTypes.REDSTONE_ORE;
+		case "minecraft:lit_redstone_ore":
+			return BlockTypes.LIT_REDSTONE_ORE;
+		case "minecraft:unlit_redstone_torch":
+			return BlockTypes.UNLIT_REDSTONE_TORCH;
+		case "minecraft:redstone_torch":
+			return BlockTypes.REDSTONE_TORCH;
+		case "minecraft:stone_button":
+			return BlockTypes.STONE_BUTTON;
+		case "minecraft:snow_layer":
+			return BlockTypes.SNOW_LAYER;
+		case "minecraft:ice":
+			return BlockTypes.ICE;
+		case "minecraft:snow":
+			return BlockTypes.SNOW;
+		case "minecraft:cactus":
+			return BlockTypes.CACTUS;
+		case "minecraft:clay":
+			return BlockTypes.CLAY;
+		case "minecraft:reeds":
+			return BlockTypes.REEDS;
+		case "minecraft:jukebox":
+			return BlockTypes.JUKEBOX;
+		case "minecraft:fence":
+			return BlockTypes.FENCE;
+		case "minecraft:pumpkin":
+			return BlockTypes.PUMPKIN;
+		case "minecraft:netherrack":
+			return BlockTypes.NETHERRACK;
+		case "minecraft:soul_sand":
+			return BlockTypes.SOUL_SAND;
+		case "minecraft:glowstone":
+			return BlockTypes.GLOWSTONE;
+		case "minecraft:portal":
+			return BlockTypes.PORTAL;
+		case "minecraft:lit_pumpkin":
+			return BlockTypes.LIT_PUMPKIN;
+		case "minecraft:cake":
+			return BlockTypes.CAKE;
+		case "minecraft:unpowered_repeater":
+			return BlockTypes.UNPOWERED_REPEATER;
+		case "minecraft:powered_repeater":
+			return BlockTypes.POWERED_REPEATER;
+		case "minecraft:stained_glass":
+			return BlockTypes.STAINED_GLASS;
+		case "minecraft:trapdoor":
+			return BlockTypes.TRAPDOOR;
+		case "minecraft:monster_egg":
+			return BlockTypes.MONSTER_EGG;
+		case "minecraft:stonebrick":
+			return BlockTypes.STONEBRICK;
+		case "minecraft:brown_mushroom_block":
+			return BlockTypes.BROWN_MUSHROOM_BLOCK;
+		case "minecraft:red_mushroom_block":
+			return BlockTypes.RED_MUSHROOM_BLOCK;
+		case "minecraft:iron_bars":
+			return BlockTypes.IRON_BARS;
+		case "minecraft:glass_pane":
+			return BlockTypes.GLASS_PANE;
+		case "minecraft:melon_block":
+			return BlockTypes.MELON_BLOCK;
+		case "minecraft:pumpkin_stem":
+			return BlockTypes.PUMPKIN_STEM;
+		case "minecraft:melon_stem":
+			return BlockTypes.MELON_STEM;
+		case "minecraft:vine":
+			return BlockTypes.VINE;
+		case "minecraft:fence_gate":
+			return BlockTypes.FENCE_GATE;
+		case "minecraft:brick_stairs":
+			return BlockTypes.BRICK_STAIRS;
+		case "minecraft:stone_brick_stairs":
+			return BlockTypes.STONE_BRICK_STAIRS;
+		case "minecraft:mycelium":
+			return BlockTypes.MYCELIUM;
+		case "minecraft:waterlily":
+			return BlockTypes.WATERLILY;
+		case "minecraft:nether_brick":
+			return BlockTypes.NETHER_BRICK;
+		case "minecraft:nether_brick_fence":
+			return BlockTypes.NETHER_BRICK_FENCE;
+		case "minecraft:nether_brick_stairs":
+			return BlockTypes.NETHER_BRICK_STAIRS;
+		case "minecraft:nether_wart":
+			return BlockTypes.NETHER_WART;
+		case "minecraft:enchanting_table":
+			return BlockTypes.ENCHANTING_TABLE;
+		case "minecraft:brewing_stand":
+			return BlockTypes.BREWING_STAND;
+		case "minecraft:cauldron":
+			return BlockTypes.CAULDRON;
+		case "minecraft:end_portal":
+			return BlockTypes.END_PORTAL;
+		case "minecraft:end_portal_frame":
+			return BlockTypes.END_PORTAL_FRAME;
+		case "minecraft:end_stone":
+			return BlockTypes.END_STONE;
+		case "minecraft:dragon_egg":
+			return BlockTypes.DRAGON_EGG;
+		case "minecraft:redstone_lamp":
+			return BlockTypes.REDSTONE_LAMP;
+		case "minecraft:lit_redstone_lamp":
+			return BlockTypes.LIT_REDSTONE_LAMP;
+		case "minecraft:double_wooden_slab":
+			return BlockTypes.DOUBLE_WOODEN_SLAB;
+		case "minecraft:wooden_slab":
+			return BlockTypes.WOODEN_SLAB;
+		case "minecraft:cocoa":
+			return BlockTypes.COCOA;
+		case "minecraft:sandstone_stairs":
+			return BlockTypes.SANDSTONE_STAIRS;
+		case "minecraft:emerald_ore":
+			return BlockTypes.EMERALD_ORE;
+		case "minecraft:ender_chest":
+			return BlockTypes.ENDER_CHEST;
+		case "minecraft:tripwire_hook":
+			return BlockTypes.TRIPWIRE_HOOK;
+		case "minecraft:tripwire":
+			return BlockTypes.TRIPWIRE;
+		case "minecraft:emerald_block":
+			return BlockTypes.EMERALD_BLOCK;
+		case "minecraft:spruce_stairs":
+			return BlockTypes.SPRUCE_STAIRS;
+		case "minecraft:birch_stairs":
+			return BlockTypes.BIRCH_STAIRS;
+		case "minecraft:jungle_stairs":
+			return BlockTypes.JUNGLE_STAIRS;
+		case "minecraft:command_block":
+			return BlockTypes.COMMAND_BLOCK;
+		case "minecraft:beacon":
+			return BlockTypes.BEACON;
+		case "minecraft:cobblestone_wall":
+			return BlockTypes.COBBLESTONE_WALL;
+		case "minecraft:flower_pot":
+			return BlockTypes.FLOWER_POT;
+		case "minecraft:carrots":
+			return BlockTypes.CARROTS;
+		case "minecraft:potatoes":
+			return BlockTypes.POTATOES;
+		case "minecraft:wooden_button":
+			return BlockTypes.WOODEN_BUTTON;
+		case "minecraft:skull":
+			return BlockTypes.SKULL;
+		case "minecraft:anvil":
+			return BlockTypes.ANVIL;
+		case "minecraft:trapped_chest":
+			return BlockTypes.TRAPPED_CHEST;
+		case "minecraft:light_weighted_pressure_plate":
+			return BlockTypes.LIGHT_WEIGHTED_PRESSURE_PLATE;
+		case "minecraft:heavy_weighted_pressure_plate":
+			return BlockTypes.HEAVY_WEIGHTED_PRESSURE_PLATE;
+		case "minecraft:unpowered_comparator":
+			return BlockTypes.UNPOWERED_COMPARATOR;
+		case "minecraft:powered_comparator":
+			return BlockTypes.POWERED_COMPARATOR;
+		case "minecraft:daylight_detector":
+			return BlockTypes.DAYLIGHT_DETECTOR;
+		case "minecraft:redstone_block":
+			return BlockTypes.REDSTONE_BLOCK;
+		case "minecraft:quartz_ore":
+			return BlockTypes.QUARTZ_ORE;
+		case "minecraft:hopper":
+			return BlockTypes.HOPPER;
+		case "minecraft:quartz_block":
+			return BlockTypes.QUARTZ_BLOCK;
+		case "minecraft:quartz_stairs":
+			return BlockTypes.QUARTZ_STAIRS;
+		case "minecraft:activator_rail":
+			return BlockTypes.ACTIVATOR_RAIL;
+		case "minecraft:dropper":
+			return BlockTypes.DROPPER;
+		case "minecraft:stained_hardened_clay":
+			return BlockTypes.STAINED_HARDENED_CLAY;
+		case "minecraft:stained_glass_pane":
+			return BlockTypes.STAINED_GLASS_PANE;
+		case "minecraft:leaves2":
+			return BlockTypes.LEAVES2;
+		case "minecraft:log2":
+			return BlockTypes.LOG2;
+		case "minecraft:acacia_stairs":
+			return BlockTypes.ACACIA_STAIRS;
+		case "minecraft:dark_oak_stairs":
+			return BlockTypes.DARK_OAK_STAIRS;
+		case "minecraft:slime":
+			return BlockTypes.SLIME;
+		case "minecraft:barrier":
+			return BlockTypes.BARRIER;
+		case "minecraft:iron_trapdoor":
+			return BlockTypes.IRON_TRAPDOOR;
+		case "minecraft:prismarine":
+			return BlockTypes.PRISMARINE;
+		case "minecraft:sea_lantern":
+			return BlockTypes.SEA_LANTERN;
+		case "minecraft:hay_block":
+			return BlockTypes.HAY_BLOCK;
+		case "minecraft:carpet":
+			return BlockTypes.CARPET;
+		case "minecraft:hardened_clay":
+			return BlockTypes.HARDENED_CLAY;
+		case "minecraft:coal_block":
+			return BlockTypes.COAL_BLOCK;
+		case "minecraft:packed_ice":
+			return BlockTypes.PACKED_ICE;
+		case "minecraft:double_plant":
+			return BlockTypes.DOUBLE_PLANT;
+		case "minecraft:standing_banner":
+			return BlockTypes.STANDING_BANNER;
+		case "minecraft:wall_banner":
+			return BlockTypes.WALL_BANNER;
+		case "minecraft:daylight_detector_inverted":
+			return BlockTypes.DAYLIGHT_DETECTOR_INVERTED;
+		case "minecraft:red_sandstone":
+			return BlockTypes.RED_SANDSTONE;
+		case "minecraft:red_sandstone_stairs":
+			return BlockTypes.RED_SANDSTONE_STAIRS;
+		case "minecraft:double_stone_slab2":
+			return BlockTypes.DOUBLE_STONE_SLAB2;
+		case "minecraft:stone_slab2":
+			return BlockTypes.STONE_SLAB2;
+		case "minecraft:spruce_fence_gate":
+			return BlockTypes.SPRUCE_FENCE_GATE;
+		case "minecraft:birch_fence_gate":
+			return BlockTypes.BIRCH_FENCE_GATE;
+		case "minecraft:jungle_fence_gate":
+			return BlockTypes.JUNGLE_FENCE_GATE;
+		case "minecraft:dark_oak_fence_gate":
+			return BlockTypes.DARK_OAK_FENCE_GATE;
+		case "minecraft:acacia_fence_gate":
+			return BlockTypes.ACACIA_FENCE_GATE;
+		case "minecraft:spruce_fence":
+			return BlockTypes.SPRUCE_FENCE;
+		case "minecraft:birch_fence":
+			return BlockTypes.BIRCH_FENCE;
+		case "minecraft:jungle_fence":
+			return BlockTypes.JUNGLE_FENCE;
+		case "minecraft:dark_oak_fence":
+			return BlockTypes.DARK_OAK_FENCE;
+		case "minecraft:acacia_fence":
+			return BlockTypes.ACACIA_FENCE;
+		case "minecraft:spruce_door":
+			return BlockTypes.SPRUCE_DOOR;
+		case "minecraft:birch_door":
+			return BlockTypes.BIRCH_DOOR;
+		case "minecraft:jungle_door":
+			return BlockTypes.JUNGLE_DOOR;
+		case "minecraft:acacia_door":
+			return BlockTypes.ACACIA_DOOR;
+		case "minecraft:dark_oak_door":
+			return BlockTypes.DARK_OAK_DOOR;
+		case "minecraft:end_rod":
+			return BlockTypes.END_ROD;
+		case "minecraft:chorus_plant":
+			return BlockTypes.CHORUS_PLANT;
+		case "minecraft:chorus_flower":
+			return BlockTypes.CHORUS_FLOWER;
+		case "minecraft:purpur_block":
+			return BlockTypes.PURPUR_BLOCK;
+		case "minecraft:purpur_pillar":
+			return BlockTypes.PURPUR_PILLAR;
+		case "minecraft:purpur_stairs":
+			return BlockTypes.PURPUR_STAIRS;
+		case "minecraft:purpur_double_slab":
+			return BlockTypes.PURPUR_DOUBLE_SLAB;
+		case "minecraft:purpur_slab":
+			return BlockTypes.PURPUR_SLAB;
+		case "minecraft:end_bricks":
+			return BlockTypes.END_BRICKS;
+		case "minecraft:beetroots":
+			return BlockTypes.BEETROOTS;
+		case "minecraft:grass_path":
+			return BlockTypes.GRASS_PATH;
+		case "minecraft:end_gateway":
+			return BlockTypes.END_GATEWAY;
+		case "minecraft:repeating_command_block":
+			return BlockTypes.REPEATING_COMMAND_BLOCK;
+		case "minecraft:chain_command_block":
+			return BlockTypes.CHAIN_COMMAND_BLOCK;
+		case "minecraft:frosted_ice":
+			return BlockTypes.FROSTED_ICE;
+		case "minecraft:magma":
+			return BlockTypes.MAGMA;
+		case "minecraft:nether_wart_block":
+			return BlockTypes.NETHER_WART_BLOCK;
+		case "minecraft:red_nether_brick":
+			return BlockTypes.RED_NETHER_BRICK;
+		case "minecraft:bone_block":
+			return BlockTypes.BONE_BLOCK;
+		case "minecraft:structure_void":
+			return BlockTypes.STRUCTURE_VOID;
+		case "minecraft:observer":
+			return BlockTypes.OBSERVER;
+		case "minecraft:white_shulker_box":
+			return BlockTypes.WHITE_SHULKER_BOX;
+		case "minecraft:orange_shulker_box":
+			return BlockTypes.ORANGE_SHULKER_BOX;
+		case "minecraft:magenta_shulker_box":
+			return BlockTypes.MAGENTA_SHULKER_BOX;
+		case "minecraft:light_blue_shulker_box":
+			return BlockTypes.LIGHT_BLUE_SHULKER_BOX;
+		case "minecraft:yellow_shulker_box":
+			return BlockTypes.YELLOW_SHULKER_BOX;
+		case "minecraft:lime_shulker_box":
+			return BlockTypes.LIME_SHULKER_BOX;
+		case "minecraft:pink_shulker_box":
+			return BlockTypes.PINK_SHULKER_BOX;
+		case "minecraft:gray_shulker_box":
+			return BlockTypes.GRAY_SHULKER_BOX;
+		case "minecraft:silver_shulker_box":
+			return BlockTypes.SILVER_SHULKER_BOX;
+		case "minecraft:cyan_shulker_box":
+			return BlockTypes.CYAN_SHULKER_BOX;
+		case "minecraft:purple_shulker_box":
+			return BlockTypes.PURPLE_SHULKER_BOX;
+		case "minecraft:blue_shulker_box":
+			return BlockTypes.BLUE_SHULKER_BOX;
+		case "minecraft:brown_shulker_box":
+			return BlockTypes.BROWN_SHULKER_BOX;
+		case "minecraft:green_shulker_box":
+			return BlockTypes.GREEN_SHULKER_BOX;
+		case "minecraft:red_shulker_box":
+			return BlockTypes.RED_SHULKER_BOX;
+		case "minecraft:black_shulker_box":
+			return BlockTypes.BLACK_SHULKER_BOX;
+		/*case "minecraft:white_glazed_terracotta":
+			return BlockTypes.WHITE_GLAZED_TERRACOTTA;
+		case "minecraft:orange_glazed_terracotta":
+			return BlockTypes.ORANGE_GLAZED_TERRACOTTA;
+		case "minecraft:magenta_glazed_terracotta":
+			return BlockTypes.MAGENTA_GLAZED_TERRACOTTA;
+		case "minecraft:light_blue_glazed_terracotta":
+			return BlockTypes.LIGHT_BLUE_GLAZED_TERRACOTTA;
+		case "minecraft:yellow_glazed_terracotta":
+			return BlockTypes.YELLOW_GLAZED_TERRACOTTA;
+		case "minecraft:lime_glazed_terracotta":
+			return BlockTypes.LIME_GLAZED_TERRACOTTA;
+		case "minecraft:pink_glazed_terracotta":
+			return BlockTypes.PINK_GLAZED_TERRACOTTA;
+		case "minecraft:gray_glazed_terracotta":
+			return BlockTypes.GRAY_GLAZED_TERRACOTTA;
+		case "minecraft:silver_glazed_terracotta":
+			return BlockTypes.SILVER_GLAZED_TERRACOTTA;
+		case "minecraft:cyan_glazed_terracotta":
+			return BlockTypes.CYAN_GLAZED_TERRACOTTA;
+		case "minecraft:purple_glazed_terracotta":
+			return BlockTypes.PURPLE_GLAZED_TERRACOTTA;
+		case "minecraft:blue_glazed_terracotta":
+			return BlockTypes.BLUE_GLAZED_TERRACOTTA;
+		case "minecraft:brown_glazed_terracotta":
+			return BlockTypes.BROWN_GLAZED_TERRACOTTA;
+		case "minecraft:green_glazed_terracotta":
+			return BlockTypes.GREEN_GLAZED_TERRACOTTA;
+		case "minecraft:red_glazed_terracotta":
+			return BlockTypes.RED_GLAZED_TERRACOTTA;
+		case "minecraft:black_glazed_terracotta":
+			return BlockTypes.BLACK_GLAZED_TERRACOTTA;
+		case "minecraft:concrete":
+			return BlockTypes.CONCRETE;
+		case "minecraft:concrete_powder":
+			return BlockTypes.CONCRETE_POWDER;
+		case null:
+			return null;
+		case null:
+			return null;*/
+		case "minecraft:structure_block":
+			return BlockTypes.STRUCTURE_BLOCK;
+		default: 
+			return null;
 		}
 	}
 }

@@ -1,133 +1,198 @@
-#! python2
+#! python3
 
-import codecs
-import urllib
+newLine = '\n'
+tab = '\t'
+hexValCol = 2
+blockIdCol = 3
+blockNameCol = 4
 
-from HTMLParser import HTMLParser
+def readCSVToTable(file,separator=",",headerCount=0):
+	returnTable = []
+	
+	inputFile = open(file,"r")
+	
+	headerRows = []
+	header = True
+	for line in inputFile:
+		cols = line.strip().split(separator)
+		if(headerCount > 0):
+			headerCount -= 1
+			headerRows.append(cols)
+		else:
+			returnTable.append(cols)
+	
+	return returnTable, headerRows
 
-def isNumber(num):
-	num = num.replace("A","1")
-	num = num.replace("B","1")
-	num = num.replace("C","1")
-	num = num.replace("D","1")
-	num = num.replace("E","1")
-	num = num.replace("F","1")
-	
-	return num.isdigit()
+def defaultCaseFormatter(caseStatement):
+	return caseStatement
 
-class MyHTMLParser(HTMLParser):
-	
-	def setup(self):
-		self.inTable = False
-		self.firstRow = False
-		self.colNum = -1
-		self.inCol = False
-		self.link = False
-		self.colDone = False
-		self.row = []
-		self.allRows = []
+def defaultReturnFormatter(returnStatement):
+	return returnStatement
 
-	def handle_starttag(self, tag, attrs):
-		if(tag == "table" and ('data-description', 'Block IDs') in attrs):
-			self.inTable = True
-			self.firstRow = True
-			self.colNum = 0
-		elif(self.inTable and self.firstRow == False and tag == "td"):
-			self.inCol = True
-		elif(self.inCol and tag == "a"):
-			self.link = True
+def generatePackageText():
+	#Return with an array as the lists are usually extended instead of appended.
+	return ["package as.minecraft.util;",newLine]
 
-	def handle_endtag(self, tag):
-		if(self.inTable and tag == "table"):
-			self.inTable = False
-		elif(tag == "tr"):
-			self.firstRow = False
-			self.colNum = 0
-			self.rowDone = False
-			
-			#Verify that the row is ok before continuing.
-			if(len(self.row) >= 3 and isNumber(self.row[0]) and isNumber(self.row[1])):
-				self.allRows.append(self.row)
-			
-			self.row = []
-		elif(tag == "td"):
-			self.inCol = False
-			self.colNum += 1
-		elif(tag == "a"):
-			self.link = False
+def generateBlockImportStatement():
+	importList = []
+	
+	importList.append("import org.spongepowered.api.block.BlockType;")
+	importList.append(newLine)
+	importList.append("import org.spongepowered.api.block.BlockTypes;")
+	importList.extend([newLine,newLine])
+	
+	return importList
 
-	def handle_data(self, data):
-		if(self.link and self.rowDone == False):
-			self.row.append(data)
-			if(self.colNum == 4):
-				self.rowDone = True
-		elif(self.inCol and self.rowDone == False):
-			self.row.append(data)
-			self.rowDone == True
+def generateClassSkeletton(className):
+	classStart = []
+	classEnd = []
+	classStart.extend(["public class ",className,newLine,"{",newLine])
+	classEnd.extend(["}"])
+	
+	return classStart,classEnd
 
-def to_camel_case(snake_str):
-    components = snake_str.split('_')
-    # We capitalize the first letter of each component except the first one
-    # with the 'title' method and join them together.
-    return components[0] + "".join(x.title() for x in components[1:])
+def generateMethod(type="private void",name="foo",arguments=[],tabs=0):
+	methodStart = []
+	methodEnd = []
+	
+	methodStart.extend([tab*tabs,type," ",name,"("])
+	argumentList = []
+	for argument in arguments:
+		argumentList.append(argument[0]+" "+argument[1])
+	methodStart.append(", ".join(argumentList))
+	
+	methodStart.extend([")",newLine,tab*tabs,"{",newLine])
+	methodEnd.extend([tab*tabs,"}",newLine])
+	
+	return methodStart,methodEnd
 
-def createJavaCode(elementList):
-	package = "as.minecraft.util"
-	className = "BlockTypeEnumerate"
-	newline = "\n"
-	tab = "\t"
+#Cases is the case to test returns.
+def generateReturningSwitch(cases, thens, variable, tabs=0, caseFormatter=defaultCaseFormatter, returnFormatter=defaultReturnFormatter, default=None):
+	switchLines = []
 	
-	textList = ["package ",package,";",newline,newline,
-	"import org.spongepowered.api.block.BlockType;",newline,"import org.spongepowered.api.block.BlockTypes;",newline,newline,
-	"public class ",className,newline,"{",newline]
+	if(len(cases) != len(thens)):
+		raise Exception("Cases and returns must have the same length as each item in thems list corresponds to case with same index.")
 	
-	textList.extend([tab,"public static BlockType getBlockTypeFromId(int id)", newline,tab,"{",newline])
-	textList.extend([tab,tab,"switch(id)",newline,tab,tab,"{",newline])
-	for elm in elementList:
-		id = "0x"+elm[1]
-		value = elm[2].replace("minecraft:","").upper()
-		if(value != "(UNUSED)"):
-			textList.extend([tab,tab,"case ",id,":",newline,tab,tab,tab,"return BlockTypes.",value,";",newline])
-	textList.extend([tab,tab,"default: ",newline,tab,tab,tab,"return BlockTypes.AIR;",newline])
-	textList.extend([tab,tab,"}",newline,tab,"}",newline])
+	switchLines.extend([tab*tabs, "switch(",variable,")",newLine,tab*tabs,"{",newLine])
+	for i in range(len(cases)):
+		case = cases[i]
+		returnText = thens[i]
+		switchLines.extend([tab*tabs,"case ",caseFormatter(case),":",newLine])
+		switchLines.extend([tab*(tabs+1),"return ",returnFormatter(returnText),";",newLine])
 	
-	textList.extend([tab,"public static String getBlockTextIdFromId(int id)", newline,tab,"{",newline])
-	textList.extend([tab,tab,"switch(id)",newline,tab,tab,"{",newline])
-	for elm in elementList:
-		id = "0x"+elm[1]
-		value = elm[2]
-		textList.extend([tab,tab,"case ",id,":",newline,tab,tab,tab,"return \"",value,"\";",newline])
-	textList.extend([tab,tab,"default: ",newline,tab,tab,tab,"return \"unknown block\";",newline])
-	textList.extend([tab,tab,"}",newline,tab,"}",newline])
+	if(default != None):
+		switchLines.extend([tab*tabs,"default: ",newLine])
+		switchLines.extend([tab*(tabs+1),"return ",default,";",newLine])
 	
-	textList.extend([tab,"public static String getBlockNameFromId(int id)", newline,tab,"{",newline])
-	textList.extend([tab,tab,"switch(id)",newline,tab,tab,"{",newline])
-	for elm in elementList:
-		id = "0x"+elm[1]
-		vale = elm[2]
-		#To take undefined into consideration as well
-		if(len(elm) > 3):
-			value = elm[3]
-		textList.extend([tab,tab,"case ",id,":",newline,tab,tab,tab,"return \"",value,"\";",newline])
-	textList.extend([tab,tab,"default: ",newline,tab,tab,tab,"return \"UNKNOWN BLOCK\";",newline])
-	textList.extend([tab,tab,"}",newline,tab,"}",newline])
+	switchLines.extend([tab*tabs,"}",newLine])
 	
+	return switchLines
+
+def getHexIdCol(table):
+	cases = []
+	for row in table:
+		cases.append(row[hexValCol])
 	
-	textList.extend(["}"])
+	return cases
+
+def getBlockIdCol(table):
+	returns = []
+	for row in table:
+		returns.append(row[blockIdCol])
 	
-	return ''.join(textList)
+	return returns
+
+def getBlockNameCol(table):
+	blockNames = []
+	for row in table:
+		blockNames.append(row[blockNameCol])
 	
+	return blockNames
+
+#Function adds a '0x' before the input argument and returns it. Used as hex number def. in java.
+def hexCaseFormatter(value):
+	return "0x"+value
+
+#Function will convert a string block id as used in the game and minecraft wiki, etc.
+#It will convert it to a block/item form used by the sponge api.
+def stringIdToSpongeIdFormatter(value):
+	if(value == ""):
+		return "null"
+	return "BlockTypes."+value.replace("minecraft:","").upper()
+
+def stringIdToJavaStringFormatter(value):
+	if(value == ""):
+		return "null";
+		
+	return "\""+value+"\""
+
+def blockNameFormatter(value):
+	value = value.strip()
+	#Remove single letters from the right side as they are only extra information
+	#TODO this might only be the case for most items. I can't think of any exceptions now (and name is not critical as it is only "esthetical")
+	findSpecialLetters = True
+	while(findSpecialLetters):
+		spacePos = value.rfind(" ")
+		specialLetter = value[spacePos+1:]
+		
+		if(len(specialLetter.strip()) == 1):
+			value = value[:spacePos]
+		else:
+			findSpecialLetters = False
+	
+	return "\""+value+"\""
+
+##Requires a very specific table layout as input
+def generateJavaCode(table):
+	javaCode = []
+	javaCode.extend(generatePackageText())
+	javaCode.extend(generateBlockImportStatement())
+	classStart,classEnd = generateClassSkeletton("BlockTypeEnumerate")
+	javaCode.extend(classStart)
+	
+	tabulation = 1
+	methodStart,methodEnd=generateMethod(type="public static BlockType",name="getBlockTypeFromId",arguments=[("int","id")],tabs=tabulation)
+	javaCode.extend(methodStart)
+	
+	tabulation=2
+	javaCode.extend(generateReturningSwitch(getHexIdCol(table), getBlockIdCol(table), "id", tabs=tabulation, caseFormatter=hexCaseFormatter, returnFormatter=stringIdToSpongeIdFormatter, default="null"))
+	javaCode.extend(methodEnd)
+	
+	tabulation=1
+	methodStart,methodEnd = generateMethod(type="public static String",name="getBlockTextIdFromId",arguments=[("int","id")],tabs=tabulation)
+	javaCode.extend(methodStart)
+	
+	tabulation=2
+	javaCode.extend(generateReturningSwitch(getHexIdCol(table), getBlockIdCol(table), "id", tabs=tabulation, caseFormatter=hexCaseFormatter, returnFormatter=stringIdToJavaStringFormatter, default="null"))
+	javaCode.extend(methodEnd)
+	
+	tabulation=1
+	methodStart,methodEnd = generateMethod(type="public static String",name="getBlockNameFromId",arguments=[("int","id")],tabs=tabulation)
+	javaCode.extend(methodStart)
+	
+	tabulation=2
+	javaCode.extend(generateReturningSwitch(getHexIdCol(table), getBlockNameCol(table), "id", tabs=tabulation,caseFormatter=hexCaseFormatter, returnFormatter=blockNameFormatter, default="null"))
+	javaCode.extend(methodEnd)
+	
+	tabulation=1
+	methodStart,methodEnd = generateMethod(type="public static BlockType",name="getBlockTypeFromBlockId",arguments=[("String","blockId")],tabs=tabulation)
+	javaCode.extend(methodStart)
+	
+	tabulation=2
+	javaCode.extend(generateReturningSwitch(getBlockIdCol(table), getBlockIdCol(table), "blockId", tabs=tabulation, caseFormatter=stringIdToJavaStringFormatter, returnFormatter=stringIdToSpongeIdFormatter, default="null"))
+	javaCode.extend(methodEnd)
+	
+	javaCode.extend(classEnd)
+	
+	return ''.join(javaCode)
+
 
 def main():
-	page = urllib.urlopen("https://minecraft.gamepedia.com/Data_values").read()
-	print(page)
-	parser = MyHTMLParser()
-	parser.setup()
-	parser.feed(page)
+	blockTable,blockHeader = readCSVToTable("blocks.csv", headerCount=1)
+	itemTable,itemHeader = readCSVToTable("items.csv", headerCount=1)
 	
 	outfile = open("BlockTypeEnumerate.java","w")
-	print(createJavaCode(parser.allRows))
-	outfile.write(createJavaCode(parser.allRows))
+	outfile.write(generateJavaCode(blockTable))
 	outfile.close()
 
 main()
