@@ -5,6 +5,7 @@ tab = '\t'
 hexValCol = 2
 blockIdCol = 3
 blockNameCol = 4
+itemIdCol = 3
 
 def readCSVToTable(file,separator=",",headerCount=0):
 	returnTable = []
@@ -31,7 +32,7 @@ def defaultReturnFormatter(returnStatement):
 
 def generatePackageText():
 	#Return with an array as the lists are usually extended instead of appended.
-	return ["package as.minecraft.util;",newLine]
+	return ["package as.minecraft.util;",newLine,newLine]
 
 def generateBlockImportStatement():
 	importList = []
@@ -39,6 +40,16 @@ def generateBlockImportStatement():
 	importList.append("import org.spongepowered.api.block.BlockType;")
 	importList.append(newLine)
 	importList.append("import org.spongepowered.api.block.BlockTypes;")
+	importList.extend([newLine,newLine])
+	
+	return importList
+
+def generateItemImportStatement():
+	importList = []
+	
+	importList.append("import org.spongepowered.api.item.ItemType;")
+	importList.append(newLine)
+	importList.append("import org.spongepowered.api.item.ItemTypes;")
 	importList.extend([newLine,newLine])
 	
 	return importList
@@ -102,6 +113,13 @@ def getBlockIdCol(table):
 	
 	return returns
 
+def getItemIdCol(table):
+	returns = []
+	for row in table:
+		returns.append(row[itemIdCol])
+	
+	return returns
+
 def getBlockNameCol(table):
 	blockNames = []
 	for row in table:
@@ -115,10 +133,15 @@ def hexCaseFormatter(value):
 
 #Function will convert a string block id as used in the game and minecraft wiki, etc.
 #It will convert it to a block/item form used by the sponge api.
-def stringIdToSpongeIdFormatter(value):
+def stringIdToSpongeBlockIdFormatter(value):
 	if(value == ""):
 		return "null"
 	return "BlockTypes."+value.replace("minecraft:","").upper()
+
+def stringIdToSpongeItemIdFormatter(value):
+	if(value == ""):
+		return "null"
+	return "ItemTypes."+value.replace("minecraft:","").upper()
 
 def stringIdToJavaStringFormatter(value):
 	if(value == ""):
@@ -143,7 +166,7 @@ def blockNameFormatter(value):
 	return "\""+value+"\""
 
 ##Requires a very specific table layout as input
-def generateJavaCode(table):
+def generateBlockIdJavaCode(table):
 	javaCode = []
 	javaCode.extend(generatePackageText())
 	javaCode.extend(generateBlockImportStatement())
@@ -155,7 +178,7 @@ def generateJavaCode(table):
 	javaCode.extend(methodStart)
 	
 	tabulation=2
-	javaCode.extend(generateReturningSwitch(getHexIdCol(table), getBlockIdCol(table), "id", tabs=tabulation, caseFormatter=hexCaseFormatter, returnFormatter=stringIdToSpongeIdFormatter, default="null"))
+	javaCode.extend(generateReturningSwitch(getHexIdCol(table), getBlockIdCol(table), "id", tabs=tabulation, caseFormatter=hexCaseFormatter, returnFormatter=stringIdToSpongeBlockIdFormatter, default="null"))
 	javaCode.extend(methodEnd)
 	
 	tabulation=1
@@ -179,20 +202,43 @@ def generateJavaCode(table):
 	javaCode.extend(methodStart)
 	
 	tabulation=2
-	javaCode.extend(generateReturningSwitch(getBlockIdCol(table), getBlockIdCol(table), "blockId", tabs=tabulation, caseFormatter=stringIdToJavaStringFormatter, returnFormatter=stringIdToSpongeIdFormatter, default="null"))
+	javaCode.extend(generateReturningSwitch(getBlockIdCol(table), getBlockIdCol(table), "blockId", tabs=tabulation, caseFormatter=stringIdToJavaStringFormatter, returnFormatter=stringIdToSpongeBlockIdFormatter, default="null"))
 	javaCode.extend(methodEnd)
 	
 	javaCode.extend(classEnd)
 	
 	return ''.join(javaCode)
 
+def generateItemIdJavaCode(table):
+	javaCode = []
+	
+	javaCode.extend(generatePackageText())
+	javaCode.extend(generateItemImportStatement())
+	
+	classStart,classEnd = generateClassSkeletton("ItemTypeEnumerate")
+	javaCode.extend(classStart)
+	
+	tabulation=1
+	methodStart,methodEnd=generateMethod(type="public static ItemType",name="getItemTypeFromItemId",arguments=[("String","itemId")],tabs=tabulation)
+	javaCode.extend(methodStart)
+	
+	tabulation=2
+	javaCode.extend(generateReturningSwitch(getItemIdCol(table), getItemIdCol(table), "itemId", tabs=tabulation, caseFormatter=stringIdToJavaStringFormatter, returnFormatter=stringIdToSpongeItemIdFormatter, default="null"))
+	javaCode.extend(methodEnd)
+	
+	javaCode.extend(classEnd)
+	
+	return ''.join(javaCode)
 
 def main():
 	blockTable,blockHeader = readCSVToTable("blocks.csv", headerCount=1)
 	itemTable,itemHeader = readCSVToTable("items.csv", headerCount=1)
 	
 	outfile = open("BlockTypeEnumerate.java","w")
-	outfile.write(generateJavaCode(blockTable))
+	outfile.write(generateBlockIdJavaCode(blockTable))
 	outfile.close()
+	
+	outfile = open("ItemTypeEnumerate.java","w")
+	outfile.write(generateItemIdJavaCode(itemTable))
 
 main()

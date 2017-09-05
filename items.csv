@@ -7,10 +7,6 @@ Icon,Dec,Hex,Name,Block
 ,5,5,minecraft:planks,Wood Planks S B
 ,6,6,minecraft:sapling,Sapling S B
 ,7,7,minecraft:bedrock,Bedrock
-,8,8,minecraft:flowing_water,Water S
-,9,9,minecraft:water,Stationary Water S
-,10,A,minecraft:flowing_lava,Lava S
-,11,B,minecraft:lava,Stationary Lava S
 ,12,C,minecraft:sand,Sand S B
 ,13,D,minecraft:gravel,Gravel
 ,14,E,minecraft:gold_ore,Gold Ore
@@ -25,7 +21,6 @@ Icon,Dec,Hex,Name,Block
 ,23,17,minecraft:dispenser,Dispenser S E
 ,24,18,minecraft:sandstone,Sandstone S B
 ,25,19,minecraft:noteblock,Note Block E
-,26,1A,minecraft:bed,Bed I S
 ,27,1B,minecraft:golden_rail,Powered Rail S
 ,28,1C,minecraft:detector_rail,Detector Rail S
 ,29,1D,minecraft:sticky_piston,Sticky Piston S
@@ -33,16 +28,13 @@ Icon,Dec,Hex,Name,Block
 ,31,1F,minecraft:tallgrass,Grass S B
 ,32,20,minecraft:deadbush,Dead Bush
 ,33,21,minecraft:piston,Piston S
-,34,22,minecraft:piston_head,Piston Head S
 ,35,23,minecraft:wool,Wool S B
-,36,24,minecraft:piston_extension,Block moved by Piston E
 ,37,25,minecraft:yellow_flower,Dandelion
 ,38,26,minecraft:red_flower,Poppy S B
 ,39,27,minecraft:brown_mushroom,Brown Mushroom
 ,40,28,minecraft:red_mushroom,Red Mushroom
 ,41,29,minecraft:gold_block,Block of Gold
 ,42,2A,minecraft:iron_block,Block of Iron
-,43,2B,minecraft:double_stone_slab,Double Stone Slab S B
 ,44,2C,minecraft:stone_slab,Stone Slab S B
 ,45,2D,minecraft:brick_block,Bricks
 ,46,2E,minecraft:tnt,TNT
@@ -50,31 +42,22 @@ Icon,Dec,Hex,Name,Block
 ,48,30,minecraft:mossy_cobblestone,Moss Stone
 ,49,31,minecraft:obsidian,Obsidian
 ,50,32,minecraft:torch,Torch S
-,51,33,minecraft:fire,Fire S
 ,52,34,minecraft:mob_spawner,Monster Spawner E
 ,53,35,minecraft:oak_stairs,Oak Wood Stairs S
 ,54,36,minecraft:chest,Chest S E
-,55,37,minecraft:redstone_wire,Redstone Wire I S
 ,56,38,minecraft:diamond_ore,Diamond Ore
 ,57,39,minecraft:diamond_block,Block of Diamond
 ,58,3A,minecraft:crafting_table,Crafting Table
 ,59,3B,minecraft:wheat,Wheat I S
 ,60,3C,minecraft:farmland,Farmland S
 ,61,3D,minecraft:furnace,Furnace S E
-,62,3E,minecraft:lit_furnace,Burning Furnace S E
-,63,3F,minecraft:standing_sign,Standing Sign I S E
-,64,40,minecraft:wooden_door,Oak Door I S
 ,65,41,minecraft:ladder,Ladder S
 ,66,42,minecraft:rail,Rail S
 ,67,43,minecraft:stone_stairs,Cobblestone Stairs S
-,68,44,minecraft:wall_sign,Wall Sign I S E
 ,69,45,minecraft:lever,Lever S
 ,70,46,minecraft:stone_pressure_plate,Stone Pressure Plate S
-,71,47,minecraft:iron_door,Iron Door I S
 ,72,48,minecraft:wooden_pressure_plate,Wooden Pressure Plate S
 ,73,49,minecraft:redstone_ore,Redstone Ore
-,74,4A,minecraft:lit_redstone_ore,Glowing Redstone Ore
-,75,4B,minecraft:unlit_redstone_torch,Redstone Torch (inactive) S
 ,76,4C,minecraft:redstone_torch,Redstone Torch (active) S
 ,77,4D,minecraft:stone_button,Stone Button S
 ,78,4E,minecraft:snow_layer,Snow (layer) S B
@@ -82,18 +65,13 @@ Icon,Dec,Hex,Name,Block
 ,80,50,minecraft:snow,Snow
 ,81,51,minecraft:cactus,Cactus S
 ,82,52,minecraft:clay,Clay
-,83,53,minecraft:reeds,Sugar Cane I S
 ,84,54,minecraft:jukebox,Jukebox S E
 ,85,55,minecraft:fence,Oak Fence
 ,86,56,minecraft:pumpkin,Pumpkin S
 ,87,57,minecraft:netherrack,Netherrack
 ,88,58,minecraft:soul_sand,Soul Sand
 ,89,59,minecraft:glowstone,Glowstone
-,90,5A,minecraft:portal,Nether Portal
 ,91,5B,minecraft:lit_pumpkin,Jack o'Lantern S
-,92,5C,minecraft:cake,Cake I S
-,93,5D,minecraft:unpowered_repeater,Redstone Repeater (inactive) I S
-,94,5E,minecraft:powered_repeater,Redstone Repeater (active) I S
 ,95,5F,minecraft:stained_glass,Stained Glass S B
 ,96,60,minecraft:trapdoor,Trapdoor S
 ,97,61,minecraft:monster_egg,Monster Egg S B
@@ -103,8 +81,6 @@ Icon,Dec,Hex,Name,Block
 ,101,65,minecraft:iron_bars,Iron Bars
 ,102,66,minecraft:glass_pane,Glass Pane
 ,103,67,minecraft:melon_block,Melon
-,104,68,minecraft:pumpkin_stem,Pumpkin Stem S
-,105,69,minecraft:melon_stem,Melon Stem S
 ,106,6A,minecraft:vine,Vines S
 ,107,6B,minecraft:fence_gate,Fence Gate S
 ,108,6C,minecraft:brick_stairs,Brick Stairs S
@@ -114,24 +90,16 @@ Icon,Dec,Hex,Name,Block
 ,112,70,minecraft:nether_brick,Nether Brick
 ,113,71,minecraft:nether_brick_fence,Nether Brick Fence
 ,114,72,minecraft:nether_brick_stairs,Nether Brick Stairs S
-,115,73,minecraft:nether_wart,Nether Wart I S
 ,116,74,minecraft:enchanting_table,Enchantment Table E
-,117,75,minecraft:brewing_stand,Brewing Stand I S E
-,118,76,minecraft:cauldron,Cauldron I S
-,119,77,minecraft:end_portal,End Portal E
 ,120,78,minecraft:end_portal_frame,End Portal Frame S
 ,121,79,minecraft:end_stone,End Stone
 ,122,7A,minecraft:dragon_egg,Dragon Egg
 ,123,7B,minecraft:redstone_lamp,Redstone Lamp (inactive)
-,124,7C,minecraft:lit_redstone_lamp,Redstone Lamp (active)
-,125,7D,minecraft:double_wooden_slab,Double Wooden Slab S B
 ,126,7E,minecraft:wooden_slab,Wooden Slab S B
-,127,7F,minecraft:cocoa,Cocoa I S
 ,128,80,minecraft:sandstone_stairs,Sandstone Stairs S
 ,129,81,minecraft:emerald_ore,Emerald Ore
 ,130,82,minecraft:ender_chest,Ender Chest S E
 ,131,83,minecraft:tripwire_hook,Tripwire Hook S
-,132,84,minecraft:tripwire,Tripwire I S
 ,133,85,minecraft:emerald_block,Block of Emerald
 ,134,86,minecraft:spruce_stairs,Spruce Wood Stairs S
 ,135,87,minecraft:birch_stairs,Birch Wood Stairs S
@@ -139,17 +107,11 @@ Icon,Dec,Hex,Name,Block
 ,137,89,minecraft:command_block,Command Block E
 ,138,8A,minecraft:beacon,Beacon E
 ,139,8B,minecraft:cobblestone_wall,Cobblestone Wall S B
-,140,8C,minecraft:flower_pot,Flower Pot I S E
-,141,8D,minecraft:carrots,Carrot I S
-,142,8E,minecraft:potatoes,Potato I S
 ,143,8F,minecraft:wooden_button,Wooden Button S
-,144,90,minecraft:skull,Mob head I S E
 ,145,91,minecraft:anvil,Anvil S B
 ,146,92,minecraft:trapped_chest,Trapped Chest S E
 ,147,93,minecraft:light_weighted_pressure_plate,Weighted Pressure Plate (Light) S
 ,148,94,minecraft:heavy_weighted_pressure_plate,Weighted Pressure Plate (Heavy) S
-,149,95,minecraft:unpowered_comparator,Redstone Comparator I S
-,150,96,minecraft:powered_comparator,Redstone Comparator (deprecated) S
 ,151,97,minecraft:daylight_detector,Daylight Sensor E
 ,152,98,minecraft:redstone_block,Block of Redstone
 ,153,99,minecraft:quartz_ore,Nether Quartz Ore
@@ -175,12 +137,8 @@ Icon,Dec,Hex,Name,Block
 ,173,AD,minecraft:coal_block,Block of Coal
 ,174,AE,minecraft:packed_ice,Packed Ice
 ,175,AF,minecraft:double_plant,Large Flowers S B
-,176,B0,minecraft:standing_banner,Standing Banner I S E
-,177,B1,minecraft:wall_banner,Wall Banner I S E
-,178,B2,minecraft:daylight_detector_inverted,Inverted Daylight Sensor E
 ,179,B3,minecraft:red_sandstone,Red Sandstone S B
 ,180,B4,minecraft:red_sandstone_stairs,Red Sandstone Stairs S
-,181,B5,minecraft:double_stone_slab2,Double Red Sandstone Slab S
 ,182,B6,minecraft:stone_slab2,Red Sandstone Slab S
 ,183,B7,minecraft:spruce_fence_gate,Spruce Fence Gate
 ,184,B8,minecraft:birch_fence_gate,Birch Fence Gate
@@ -192,26 +150,17 @@ Icon,Dec,Hex,Name,Block
 ,190,BE,minecraft:jungle_fence,Jungle Fence
 ,191,BF,minecraft:dark_oak_fence,Dark Oak Fence
 ,192,C0,minecraft:acacia_fence,Acacia Fence
-,193,C1,minecraft:spruce_door,Spruce Door I S
-,194,C2,minecraft:birch_door,Birch Door I S
-,195,C3,minecraft:jungle_door,Jungle Door I S
-,196,C4,minecraft:acacia_door,Acacia Door I S
-,197,C5,minecraft:dark_oak_door,Dark Oak Door I S
 ,198,C6,minecraft:end_rod,End Rod
 ,199,C7,minecraft:chorus_plant,Chorus Plant
 ,200,C8,minecraft:chorus_flower,Chorus Flower
 ,201,C9,minecraft:purpur_block,Purpur Block
 ,202,CA,minecraft:purpur_pillar,Purpur Pillar
 ,203,CB,minecraft:purpur_stairs,Purpur Stairs
-,204,CC,minecraft:purpur_double_slab,Purpur Double Slab
 ,205,CD,minecraft:purpur_slab,Purpur Slab
 ,206,CE,minecraft:end_bricks,End Stone Bricks
-,207,CF,minecraft:beetroots,Beetroot Seeds
 ,208,D0,minecraft:grass_path,Grass Path
-,209,D1,minecraft:end_gateway,End Gateway
 ,210,D2,minecraft:repeating_command_block,Repeating Command Block E
 ,211,D3,minecraft:chain_command_block,Chain Command Block E
-,212,D4,minecraft:frosted_ice,Frosted Ice S
 ,213,D5,minecraft:magma,Magma Block
 ,214,D6,minecraft:nether_wart_block,Nether Wart Block
 ,215,D7,minecraft:red_nether_brick,Red Nether Brick
@@ -252,8 +201,6 @@ Icon,Dec,Hex,Name,Block
 ,250,FA,minecraft:black_glazed_terracotta,Black Glazed Terracotta
 ,251,FB,minecraft:concrete,Concrete S
 ,252,FC,minecraft:concrete_powder,Concrete Powder S
-,253,FD,,(unused)
-,254,FE,,(unused)
 ,255,FF,minecraft:structure_block,Structure Block S E
 ,256,100,minecraft:iron_shovel,Iron Shovel D
 ,257,101,minecraft:iron_pickaxe,Iron Pickaxe D
@@ -295,7 +242,6 @@ Icon,Dec,Hex,Name,Block
 ,293,125,minecraft:diamond_hoe,Diamond Hoe D
 ,294,126,minecraft:golden_hoe,Golden Hoe D
 ,295,127,minecraft:wheat_seeds,Seeds
-,296,128,minecraft:wheat,Wheat
 ,297,129,minecraft:bread,Bread
 ,298,12A,minecraft:leather_helmet,Leather Cap D
 ,299,12B,minecraft:leather_chestplate,Leather Tunic D
@@ -450,19 +396,7 @@ Icon,Dec,Hex,Name,Block
 ,448,1C0,minecraft:dark_oak_boat,Dark Oak Boat
 ,449,1C1,minecraft:totem_of_undying,Totem of Undying
 ,450,1C2,minecraft:shulker_shell,Shulker Shell
-,451,1C3,,(unused)
 ,452,1C4,minecraft:iron_nugget,Iron Nugget
-,453,1C5,,(unused)
-,454,1C6,,(unused)
-,455,1C7,,(unused)
-,456,1C8,,(unused)
-,457,1C9,,(unused)
-,458,1CA,,(unused)
-,459,1CB,,(unused)
-,460,1CC,,(unused)
-,461,1CD,,(unused)
-,462,1CE,,(unused)
-,463,1CF,,(unused)
 ,2256,8D0,minecraft:record_13,13 Disc
 ,2257,8D1,minecraft:record_cat,Cat Disc
 ,2258,8D2,minecraft:record_blocks,Blocks Disc
@@ -475,7 +409,3 @@ Icon,Dec,Hex,Name,Block
 ,2265,8D9,minecraft:record_ward,Ward Disc
 ,2266,8DA,minecraft:record_11,11 Disc
 ,2267,8DB,minecraft:record_wait,Wait Disc
-,2268,8DC,,(unused)
-,2269,8DD,,(unused)
-,2270,8DE,,(unused)
-,2271,8DF,,(unused)
