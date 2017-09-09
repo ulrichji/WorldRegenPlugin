@@ -10,6 +10,8 @@ import com.flowpowered.nbt.CompoundTag;
 import com.flowpowered.nbt.Tag;
 import com.flowpowered.nbt.stream.NBTInputStream;
 
+import as.minecraft.util.STOUTLogger;
+
 public class RegenWorldReader
 {
 	private File file;
@@ -47,5 +49,16 @@ public class RegenWorldReader
 		RegenChunk chunk = new RegenChunk(root, logger);
 		
 		return chunk;
+	}
+	
+	public static void main(String[] args)
+	{
+		File worldFile = new File("D:\\Programs\\Server\\worldcopy");
+		RegenWorldReader worldReader = new RegenWorldReader(worldFile, new STOUTLogger());
+		try {
+			RegenChunk c = worldReader.getRegenChunk(-17, 16);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

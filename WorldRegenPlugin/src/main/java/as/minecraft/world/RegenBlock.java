@@ -3,7 +3,13 @@ package as.minecraft.world;
 import org.slf4j.Logger;
 import org.spongepowered.api.block.BlockState;
 import org.spongepowered.api.block.BlockType;
+import org.spongepowered.api.block.tileentity.Banner;
+import org.spongepowered.api.block.tileentity.TileEntity;
+import org.spongepowered.api.block.tileentity.carrier.TileEntityCarrier;
+import org.spongepowered.api.data.key.Keys;
 import org.spongepowered.api.event.cause.Cause;
+import org.spongepowered.api.item.inventory.Inventory;
+import org.spongepowered.api.item.inventory.ItemStack;
 import org.spongepowered.api.world.Location;
 import org.spongepowered.api.world.World;
 
@@ -16,6 +22,7 @@ public class RegenBlock
 	private int blockData;
 	private int blockLight;
 	private int skyLight;
+	private RegenBlockEntity blockEntity = null;
 	
 	public RegenBlock(int blockId, int blockData, int blockLight, int skyLight)
 	{
@@ -40,8 +47,19 @@ public class RegenBlock
 		BlockState state = loc.getBlock();
 		
 		BlockType type = getBlockType();
-		
 		BlockDataUtils.setBlockData(loc, cause, state, type, blockData);
+		
+		if(blockEntity != null)
+		{
+			if(loc.getTileEntity().isPresent())
+			{
+				if(loc.getTileEntity().isPresent())
+				{
+					TileEntity entity = loc.getTileEntity().get();
+					blockEntity.setEntityData(entity);
+				}
+			}
+		}
 	}
 	
 	public BlockType getBlockType()
@@ -63,6 +81,21 @@ public class RegenBlock
 
 	public int getSkyLight() {
 		return skyLight;
+	}
+
+	public boolean hasBlockEntity()
+	{
+		return blockEntity != null;
+	}
+	
+	public RegenBlockEntity getBlockEntity()
+	{
+		return blockEntity;
+	}
+	
+	public void setBlockEntity(RegenBlockEntity entity)
+	{
+		this.blockEntity = entity;
 	}
 	
 }

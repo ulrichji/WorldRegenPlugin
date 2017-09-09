@@ -9,13 +9,19 @@ import org.spongepowered.api.world.Chunk;
 import org.spongepowered.api.world.Location;
 import org.spongepowered.api.world.World;
 
+import com.flowpowered.math.vector.Vector2f;
+import com.flowpowered.math.vector.Vector3d;
 import com.flowpowered.nbt.ByteArrayTag;
 import com.flowpowered.nbt.ByteTag;
 import com.flowpowered.nbt.CompoundTag;
+import com.flowpowered.nbt.DoubleTag;
+import com.flowpowered.nbt.FloatTag;
 import com.flowpowered.nbt.IntArrayTag;
 import com.flowpowered.nbt.IntTag;
 import com.flowpowered.nbt.ListTag;
 import com.flowpowered.nbt.LongTag;
+import com.flowpowered.nbt.ShortTag;
+import com.flowpowered.nbt.StringTag;
 import com.flowpowered.nbt.Tag;
 import com.flowpowered.nbt.TagType;
 
@@ -35,6 +41,8 @@ public class RegenChunk
 	private int[] heightMap = null;
 	//Regen chunk as x, y, z [16][256][16]
 	private RegenBlock[][][] chunkBlocks = null;
+	private ArrayList<RegenEntity> entities = new ArrayList<RegenEntity>();
+	private ArrayList<RegenBlockEntity> blockEntities = new ArrayList<RegenBlockEntity>();
 	
 	private Logger logger = null;
 	private BlockEvaluator evaluator = null;
@@ -48,6 +56,33 @@ public class RegenChunk
 	{
 		this.logger = logger;
 		parseTree(root);
+		applyBlockEntities();
+	}
+
+	private void applyBlockEntities()
+	{
+		for(RegenBlockEntity entity : blockEntities)
+		{
+			if(entity.hasPosition())
+			{
+				int entityChunkX = entity.getX() < 0 ? (entity.getX() - 15) / 16 : entity.getX() / 16;
+				int entityChunkZ = entity.getZ() < 0 ? (entity.getZ() - 15) / 16 : entity.getZ() / 16;
+				
+				if(entityChunkX == chunkX && entityChunkZ == chunkZ)
+				{
+					int blockX = entity.getX() % 16;
+					int blockZ = entity.getZ() % 16;
+					int blockY = entity.getY();
+					
+					if(blockX < 0) blockX += 16;
+					if(blockY < 0) blockZ += 16;
+					
+					chunkBlocks[blockX][blockY][blockZ].setBlockEntity(entity);
+				}
+				else
+					throw new IllegalArgumentException("Block has invalid position");
+			}
+		}
 	}
 
 	public void reloadChunk(Chunk c, PluginContainer rootCause)
@@ -159,15 +194,278 @@ public class RegenChunk
 		// TODO Currently unimplemented
 	}
 
-	private void parseTileEntities(ListTag<?> tag)
+	private void parseTileEntities(ListTag<?> tileEntitiesTag)
 	{
-		debug("TE: "+tag.getName());
-		// TODO Currently unimplemented
+		debug("TEL: "+tileEntitiesTag.getName());
+		
+		for(Tag<?> tag : tileEntitiesTag.getValue())
+		{
+			if(tag.getType() == TagType.TAG_COMPOUND)
+				parseTileEntity((CompoundTag)tag);
+			else
+				throw new IllegalArgumentException("Tag of type "+tag.getType().toString()+" is not allowed in tile entity list");
+		}
 	}
 
-	private void parseEntities(ListTag<?> tag)
+	private void parseTileEntity(CompoundTag tileEntity)
 	{
-		debug("E : "+tag.getName());
+		debug("TE: "+tileEntity.getName());
+		
+		RegenBlockEntity entity = new RegenBlockEntity();
+		
+		for(Tag<?> tag : tileEntity.getValue())
+		{
+			if(tag.getType() == TagType.TAG_STRING && tag.getName().equals("id"))
+				entity.setId(((StringTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_INT && tag.getName().equals("x"))
+				entity.setX(((IntTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_INT && tag.getName().equals("y"))
+				entity.setY(((IntTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_INT && tag.getName().equals("z"))
+				entity.setZ(((IntTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_STRING && tag.getName().equals("CustomName"))
+				entity.setCustomName(((StringTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_INT && tag.getName().equals("Base"))
+				entity.setBaseColor(((IntTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_LIST && tag.getName().equals("Patterns"))
+				entity.setPatterns(getBannerPatterns((ListTag<?>)tag));
+			else if(tag.getType() == TagType.TAG_STRING && tag.getName().equals("Lock"))
+				entity.setLock(((StringTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_INT && tag.getName().equals("Levels"))
+				entity.setLevels(((IntTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_INT && tag.getName().equals("Primary"))
+				entity.setPrimaryEffect(((IntTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_INT && tag.getName().equals("Secondary"))
+				entity.setSecondaryEffect(((IntTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_INT && tag.getName().equals("color"))
+				entity.setDyeColor(((IntTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_INT && tag.getName().equals("CusomColor"))
+				entity.setCustomColor(((IntTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_LIST && tag.getName().equals("Items"))
+				entity.setItems(parseItemsList((ListTag<?>)tag));
+			else if(tag.getType() == TagType.TAG_SHORT && tag.getName().equals("PotionId"))
+				entity.setPotionId(((ShortTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_BYTE && tag.getName().equals("SplashPotion"))
+				entity.setStoresSplashPotion(((ByteTag)tag).getBooleanValue());
+			else if(tag.getType() == TagType.TAG_BYTE && tag.getName().equals("isMovable"))
+				entity.setMovable(((ByteTag)tag).getBooleanValue());
+			else if(tag.getType() == TagType.TAG_INT && tag.getName().equals("BrewTime"))
+				entity.setBrewTime(((IntTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_BYTE && tag.getName().equals("Fuel"))
+				entity.setFuel(((ByteTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_STRING && tag.getName().equals("LootTable"))
+				entity.setLootTable(((StringTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_LONG && tag.getName().equals("LootTableSeed"))
+				entity.setLootTableSeed(((LongTag)tag).getValue());
+			else
+				debug("Extra tag: "+tag.getType().toString() + " , "+tag.getName());
+		}
+		
+		System.out.println(entity.toString());
+		blockEntities.add(entity);
+	}
+
+	private ArrayList<RegenItem> parseItemsList(ListTag<?> itemList)
+	{
+		ArrayList<RegenItem> items = new ArrayList<RegenItem>();
+		
+		for(Tag<?> tag : itemList.getValue())
+		{
+			if(tag.getType() == TagType.TAG_COMPOUND)
+				items.add(parseItem((CompoundTag)tag));
+			else
+				throw new IllegalArgumentException("A tag of type "+tag.getType() + " is not valid in an item list. Only COMPOUND tags supported.");
+		}
+		
+		return items;
+	}
+
+	private RegenItem parseItem(CompoundTag itemTag)
+	{
+		RegenItem item = new RegenItem();
+		
+		for(Tag<?> tag : itemTag.getValue())
+		{
+			if(tag.getType() == TagType.TAG_BYTE && tag.getName().equals("Count"))
+				item.setCount(((ByteTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_BYTE && tag.getName().equals("Slot"))
+				item.setSlot(((ByteTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_SHORT && tag.getName().equals("Damage"))
+				item.setDamage(((ShortTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_STRING && tag.getName().equals("id"))
+				item.setId(((StringTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_COMPOUND && tag.getName().equals("tag"))
+				parseItemTag((CompoundTag)tag, item);
+		}
+		
+		return item;
+	}
+
+	private void parseItemTag(CompoundTag itemTag, RegenItem item)
+	{
+		for(Tag<?> tag : itemTag.getValue())
+		{
+			debug("Tag: "+tag.getType() + ", "+tag.getName());
+		}
+	}
+
+	private ArrayList<RegenBannerPattern> getBannerPatterns(ListTag<?> patternListTag)
+	{
+		ArrayList<RegenBannerPattern> patternList = new ArrayList<RegenBannerPattern>();
+		
+		for(Tag<?> tag : patternListTag.getValue())
+		{
+			if(tag.getType() == TagType.TAG_COMPOUND)
+				patternList.add(getRegenBannerPattern((CompoundTag)tag));
+			else
+				throw new IllegalArgumentException("The tag "+tag.getType()+" is not valid in a patterns list tag");
+		}
+		
+		return patternList;
+	}
+
+	private RegenBannerPattern getRegenBannerPattern(CompoundTag patternTag)
+	{
+		String pattern = "";
+		int color = 0;
+		
+		for(Tag<?> tag : patternTag.getValue())
+		{
+			if(tag.getType() == TagType.TAG_INT && tag.getName().equals("Color"))
+				color = ((IntTag)tag).getValue();
+			else if(tag.getType() == TagType.TAG_STRING && tag.getName().equals("Pattern"))
+				pattern = ((StringTag)tag).getValue();
+			else
+				throw new IllegalArgumentException("The tag "+tag.getName()+" of type "+tag.getType()+" is invalid in a banner pattern tag");
+		}
+		
+		return new RegenBannerPattern(pattern, color);
+	}
+	
+	private ArrayList<String> parseTags(ListTag<?> tags)
+	{
+		ArrayList<String> returnTags = new ArrayList<String>();
+		
+		for(Tag<?> tag : tags.getValue())
+		{
+			if(tag.getType() == TagType.TAG_STRING)
+				returnTags.add(((StringTag)tag).getValue());
+			else
+				throw new IllegalArgumentException("Tag list contained "+tag.getType().toString()+" tags. Only string tags are allowed");
+		}
+		
+		return returnTags;
+	}
+
+	private Object parsePassengers(Tag<?> tag)
+	{
+		//TODO implement
+		return null;
+	}
+
+	private Vector2f parseEntityFloatRotation(ListTag<?> rotationList)
+	{
+		double yaw=0, pitch=0;
+		int index = 0;
+		
+		for(Tag<?> tag : rotationList.getValue())
+		{
+			if(tag.getType() == TagType.TAG_FLOAT)
+			{
+				if(index == 0)
+					yaw = ((FloatTag)tag).getValue();
+				else if(index == 1)
+					pitch = ((FloatTag)tag).getValue();
+				
+				index ++;
+			}
+			else
+				throw new IllegalArgumentException("Tag of type "+tag.getType().toString()+" is not a valid rotation tag type");
+		}
+		
+		return new Vector2f(yaw,pitch);
+	}
+
+	private Vector3d parseEntityDoubleCoord(ListTag<?> posList)
+	{
+		double x=0,y=0,z=0;
+		int index = 0;
+		
+		for(Tag<?> tag : posList.getValue())
+		{
+			if(tag.getType() == TagType.TAG_DOUBLE)
+			{
+				if(index == 0)
+					x = ((DoubleTag)tag).getValue();
+				else if(index == 1)
+					y = ((DoubleTag)tag).getValue();
+				else if(index == 2)
+					z = ((DoubleTag)tag).getValue();
+				
+				index ++;
+			}
+			else
+				throw new IllegalArgumentException("Tag of type "+tag.getType().toString()+" is not a valid coordinate tag type");
+		}
+		
+		return new Vector3d(x,y,z);
+	}
+
+	private void parseEntities(ListTag<?> entityTag)
+	{
+		debug("E : "+entityTag.getName());
+		RegenEntity entity = new RegenEntity();
+		for(Tag<?> tag : entityTag.getValue())
+		{
+			if(tag.getType() == TagType.TAG_STRING && tag.getName().equals("id"))
+				entity.setId(((StringTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_LIST && tag.getName().equals("Pos"))
+				entity.setPos(parseEntityDoubleCoord((ListTag<?>)tag));
+			else if(tag.getType() == TagType.TAG_LIST && tag.getName().equals("Motion"))
+				entity.setMotion(parseEntityDoubleCoord((ListTag<?>)tag));
+			else if(tag.getType() == TagType.TAG_LIST && tag.getName().equals("Rotation"))
+				entity.setRotation(parseEntityFloatRotation((ListTag<?>)tag));
+			else if(tag.getType() == TagType.TAG_FLOAT && tag.getName().equals("FallDistance"))
+				entity.setFallDistance(((FloatTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_SHORT && tag.getName().equals("Fire"))
+				entity.setFire(((ShortTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_SHORT &&  tag.getName().equals("Air"))
+				entity.setAir(((ShortTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_BYTE && tag.getName().equals("OnGround"))
+				entity.setOnGround(((ByteTag)tag).getBooleanValue());
+			else if(tag.getType() == TagType.TAG_BYTE && tag.getName().equals("NoGravity"))
+				entity.setNoGravity(((ByteTag)tag).getBooleanValue());
+			else if(tag.getType() == TagType.TAG_INT && tag.getName().equals("Dimension"))
+				entity.setDimension(((IntTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_BYTE && tag.getName().equals("Invulnerable"))
+				entity.setInvulnerable(((ByteTag)tag).getBooleanValue());
+			else if(tag.getType() == TagType.TAG_INT && tag.getName().equals("PortalCooldown"))
+				entity.setPortalCooldown(((IntTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_LONG && tag.getName().equals("UUIDMost"))
+				entity.setUUIDMost(((LongTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_LONG && tag.getName().equals("UUIDLeast"))
+				entity.setUUIDLeast(((LongTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_STRING	&& tag.getName().equals("CustomName"))
+				entity.setCustomName(((StringTag)tag).getValue());
+			else if(tag.getType() == TagType.TAG_BYTE && tag.getName().equals("CustomNameVisible"))
+				entity.setCustomNameVisible(((ByteTag)tag).getBooleanValue());
+			else if(tag.getType() == TagType.TAG_BYTE && tag.getName().equals("Silent"))
+				entity.setSilent(((ByteTag)tag).getBooleanValue());
+			else if(tag.getType() == TagType.TAG_COMPOUND && tag.getName().equals("Riding"))
+			{/*Skip this as it is deprecated in 1.9*/}
+			else if(tag.getType() == TagType.TAG_LIST && tag.getName().equals("Passengers"))
+				entity.setPassengers(parsePassengers(tag));
+			else if(tag.getType() == TagType.TAG_BYTE && tag.getName().equals("Glowing"))
+				entity.setGlowing(((ByteTag)tag).getBooleanValue());
+			else if(tag.getType() == TagType.TAG_LIST && tag.getName().equals("Tags"))
+				entity.setTags(parseTags((ListTag<?>)tag));
+			else if(tag.getType() == TagType.TAG_COMPOUND && tag.getName().equals("CommandStats"))
+			{/*TODO: Handle command stats.*/}
+			else
+				debug("ExtraTag: "+tag.getName());
+		}
+		
+		//TODO: implement
 	}
 
 	private void parseSections(ListTag<?> tag)
@@ -338,8 +636,8 @@ public class RegenChunk
 	
 	private void debug(String message)
 	{
-		//if(logger != null)
-		//	logger.info(message);
+		if(logger != null)
+			logger.info(message);
 	}
 	
 	public void setBlockEvaluator(BlockEvaluator evaluator)
