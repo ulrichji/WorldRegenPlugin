@@ -3,15 +3,21 @@ package as.minecraft.world;
 import java.util.ArrayList;
 
 import org.spongepowered.api.block.tileentity.Banner;
-import org.spongepowered.api.block.tileentity.CommandBlock;
 import org.spongepowered.api.block.tileentity.TileEntity;
+import org.spongepowered.api.block.tileentity.carrier.Beacon;
 import org.spongepowered.api.block.tileentity.carrier.TileEntityCarrier;
 import org.spongepowered.api.data.key.Keys;
-import org.spongepowered.api.data.manipulator.mutable.CommandData;
+import org.spongepowered.api.data.manipulator.mutable.tileentity.BeaconData;
+import org.spongepowered.api.data.value.mutable.OptionalValue;
 import org.spongepowered.api.data.value.mutable.PatternListValue;
+import org.spongepowered.api.effect.potion.PotionEffect;
+import org.spongepowered.api.effect.potion.PotionEffectType;
 import org.spongepowered.api.item.inventory.Inventory;
 
+import com.google.common.base.Optional;
+
 import as.minecraft.util.ColorUtil;
+import as.minecraft.util.PotionEffectUtils;
 
 public class RegenBlockEntity
 {
@@ -143,13 +149,6 @@ public class RegenBlockEntity
 	
 	public void setEntityData(TileEntity entity)
 	{
-		if(entity instanceof TileEntityCarrier)
-		{
-			TileEntityCarrier carrier = (TileEntityCarrier) entity;
-			Inventory inventory = carrier.getInventory();
-			inventory.clear();
-			this.setInventory(inventory);
-		}
 		if(entity instanceof Banner)
 		{
 			Banner banner = (Banner) entity;
@@ -165,5 +164,35 @@ public class RegenBlockEntity
 			if(patterns.exists())
 				banner.offer(Keys.BANNER_PATTERNS, patterns.get());
 		}
+		if(entity instanceof  Beacon)
+		{
+			Beacon b = (Beacon)entity;
+			BeaconData beaconData = b.getBeaconData();
+			if(primaryEffect != null)
+			{
+				PotionEffectType primary = PotionEffectUtils.getPotionEffectTypeFromInt(primaryEffect);
+				OptionalValue<PotionEffectType> beaconEffect = beaconData.primaryEffect();
+				beaconEffect.setTo(primary);
+				if(beaconEffect.exists())
+					beaconData.set(Keys.BEACON_PRIMARY_EFFECT,beaconEffect.get());
+				
+			}
+			if(secondaryEffect != null)
+			{
+				PotionEffectType secondary = PotionEffectUtils.getPotionEffectTypeFromInt(secondaryEffect);
+				OptionalValue<PotionEffectType> beaconEffect = beaconData.secondaryEffect();
+				beaconEffect.setTo(secondary);
+				if(beaconEffect.exists())
+					beaconData.set(Keys.BEACON_SECONDARY_EFFECT, beaconEffect.get());
+			}
+			b.offer(beaconData);
+		}
+		/*if(entity instanceof TileEntityCarrier)
+		{
+			TileEntityCarrier carrier = (TileEntityCarrier) entity;
+			Inventory inventory = carrier.getInventory();
+			inventory.clear();
+			this.setInventory(inventory);
+		}*/
 	}
 }
